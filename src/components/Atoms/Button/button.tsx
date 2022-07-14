@@ -14,7 +14,8 @@ export type ButtonProps = {
     onClick?: () => void,
 
     variant: ButtonVariants,
-    loading?: boolean
+    loading?: boolean,
+    width?: string
 } & React.ComponentPropsWithoutRef<'button'>;
 
 
@@ -25,14 +26,15 @@ const Button: React.FC<ButtonProps> = ({
     onClick,
     children,
     loading,
-
+    disabled,
+    width
 }) => {
 
     let [hover, setHover] = useState(false)
 
 
     return (
-        <button onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={loading ? undefined : onClick} className={`duration-200 rounded-md shadow-button h-[3.25rem] desktop:h-[2.875rem] w-full max-w-[13.875rem] desktop:max-w-[24.375rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem] border-[1px]  ${variant === ButtonVariants.FILLED ? 'bg-accent  hover:bg-accent-dark text-white border-transparent' : "border-accent bg-transparent text-accent hover:bg-accent hover:text-white"} ${loading ? 'cursor-default' : 'cursor-pointer'}`}>
+        <button onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)} onClick={loading || disabled ? undefined : onClick} className={`${width ? width : ''} duration-200 shadow-button px-[2.625rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem] border-[1px]  ${disabled ? 'bg-disabled   text-white border-transparent' :  variant === ButtonVariants.FILLED ? 'bg-accent  hover:bg-accent-dark text-white border-transparent' : "border-accent bg-transparent text-accent hover:bg-accent hover:text-white"} ${loading ? 'cursor-default' : 'cursor-pointer'}`}>
             {
                 loading &&
                 <div className="absolute left-3">
@@ -40,7 +42,6 @@ const Button: React.FC<ButtonProps> = ({
                 </div>
 
             }
-
             {children}
 
         </button>

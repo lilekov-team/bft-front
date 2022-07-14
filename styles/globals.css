@@ -6,18 +6,25 @@
 html {
   --primary: #111111;
   --primary-text: #000000;
-  --accent: #3893E8;
+  --accent:#FF235B;
   --white: #ffffff;
-  --accent-dark: #386188;
+  --accent-dark: #d42a55;
   --secondary: #A4A4A4;
   --secondary-text:#838383;
   --error: #EF4444;
   --light-grey:#F7F7F7;
-  --pale-blue: #6D94B8;
+  --pale-blue: #00E0FF;
   --grey: #A4A4A4;
+  --disabled: #FF235B88;
+
+  overflow-x: hidden;
+
 
   --main-red: red;
-  --main-blue: blue;
+  --main-blue: #00E0FF;
+  --blue: #5DF6FF;
+  font-size: 1.11vw;
+  font-family: 'Verdana' , sans-serif;
 }
 
 
@@ -36,13 +43,19 @@ html {
   --grey: #A4A4A4;
 
   --main-red: yellow;
-  --main-blue: green;
+  --main-blue: #00E0FF;
 }
 
 * {
   padding: 0;
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Verdana' , sans-serif;
+}
+
+
+html, body, #__next {
+  min-height: 100vh;
+  height: 100%;
 }
 
 a {
@@ -53,3 +66,115 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+
+::-webkit-scrollbar {
+  width: 8px; /* ширина для вертикального скролла */
+  height: 8px; /* высота для горизонтального скролла */
+  background-color: transparent;
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 9em;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Стрелки */
+::-webkit-scrollbar-button:vertical:start:decrement {
+  display: none;
+}
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: none;
+}
+::-webkit-scrollbar-button:horizontal:start:decrement {
+  display: none;
+}
+::-webkit-scrollbar-button:horizontal:end:increment {
+  display: none;
+}
+
+
+
+.video-react-paused > .video-react-big-play-button {
+  display: block!important;
+}
+
+
+.video-react.video-react-fluid{
+  height: 100%!important;
+}
+
+
+
+.video-react-big-play-button {
+  width: 13.375rem!important;
+  height: 13.375rem!important;
+  border-radius: 7rem!important;
+  transform: translate(-50%, -50%);
+  margin-top: 0!important;
+  margin-left: 0!important;
+  border: none!important;
+  background-color: rgba(255, 255, 255, 0.16)!important;
+}
+
+.video-react-big-play-button::before {
+  
+  content: ""!important;
+  width: 5.650rem!important;
+  height: 6.375rem!important;
+  background-image: url("/play.png")!important;
+  background-size: 90%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  top: 50%!important;
+  left: 52%!important;
+  transform: translate(-40%, -50%);
+  padding-left: auto;
+}
+
+
+@font-face {
+  font-family: "Verdana";
+  src: url('../fonts/Verdana.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Verdana";
+  src: url('../fonts/Verdana-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+.aplayer-info {
+  display: block!important;
+  background-color: #0B0027!important;
+  border: none!important;
+}
+
+.aplayer-info * {
+  color: white!important;
+  fill: white!important;
+  border: none!important;
+}
+
+.aplayer-miniswitcher {
+  background-color: var(--accent)!important;
+}
+
+.aplayer-miniswitcher * {
+  fill: white!important;
+}
+
+/* .aplayer-fixed {
+  left: 50%!important;
+  transform: translateX(-50%);
+} */

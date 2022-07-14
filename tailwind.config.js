@@ -15,14 +15,25 @@ module.exports = {
       'accent-dark':'var(--accent-dark)',
       'error':'var(--error)',
       'white':'var(--white)',
-      'plae-blue':'var(--plae-blue)',
+      'pale-blue':'var(--pale-blue)',
       'light-grey':'var(--light-grey)',
       'grey':'var(--grey)',
+      'blue':'var(--blue)',
+      'disabled':'var(--disabled)',
       'transparent': 'transparent'
     },
     extend: {
       boxShadow: {
-        "button": "0px 4px 15px rgba(0, 0, 0, 0.1)"
+        "button": "0px 4px 15px rgba(0, 0, 0, 0.1)",
+        "modal": "0px 20px 40px rgba(0, 0, 0, 0.25)",
+        "video-blue": "0px 0px 20px 0px #00E0FF",
+        "video-pink": "0px 5.23982px 26.1991px #FF235B",
+        "pink": "0px 0px 10px #FF235B",
+        "blue": "0px 0px 10px #00E0FF",
+        "blue-large": "0px 0px 15px #5DF6FF",
+      },
+      backgroundImage: {
+        "main": "url(/bft-bg.png)" 
       }
     },
     fontFamily: {
@@ -34,6 +45,12 @@ module.exports = {
       'header-breakpoint': '930px',
       'xl': '1440px'
     },
+    backgroundSize: {
+      "main-fill": "100% 100%"
+    },
+    dropShadow: {
+      "accent": "0px 0px 15px #00E0FF" 
+    }
   },
   plugins: [],
 }
