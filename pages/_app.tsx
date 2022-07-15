@@ -4,7 +4,8 @@ import { ChakraProvider } from '@chakra-ui/provider'
 import { extendTheme } from '@chakra-ui/react'
 import LanguageProvider from '../src/components/Providers/LanguageProvider/language-provider'
 import "video-react/dist/video-react.css"; 
-
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 
 const theme = extendTheme({

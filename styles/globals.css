@@ -109,7 +109,9 @@ a {
   height: 100%!important;
 }
 
-
+.slick-list {
+  overflow: visible!important;
+}
 
 .video-react-big-play-button {
   width: 13.375rem!important;

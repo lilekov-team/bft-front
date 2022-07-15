@@ -29,6 +29,7 @@ module.exports = {
         "video-blue": "0px 0px 20px 0px #00E0FF",
         "video-pink": "0px 5.23982px 26.1991px #FF235B",
         "pink": "0px 0px 10px #FF235B",
+        "pink-full": "2px 2px 10px #FF235B, -2px -2px 10px #FF235B",
         "blue": "0px 0px 10px #00E0FF",
         "blue-large": "0px 0px 15px #5DF6FF",
       },

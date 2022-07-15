@@ -179,7 +179,7 @@ const Home: NextPage = () => {
             y:"-50%"
           }}
           
-          className='fixed right-[7.5rem] top-[50%] translate-y-[-50%]  z-50'>
+          className='fixed right-[2.5rem] top-[50%] translate-y-[-50%]  z-50'>
             <img onClick={() => handleNavigation(Routes.Fuel)} src="/mic.png" alt="mic" className='cursor-pointer mb-[1.875rem]' />
             <img onClick={() => {
               window.scroll({
