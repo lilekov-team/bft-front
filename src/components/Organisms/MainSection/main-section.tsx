@@ -47,6 +47,7 @@ const MainSection = () => {
                     height={985 / 16 * 1.11 * width / 100}
                     src={"/main-bg.png"}
                     alt="bg"
+                    priority
                 />
 
             </div>

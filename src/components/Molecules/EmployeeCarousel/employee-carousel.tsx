@@ -22,14 +22,15 @@ selected
     const [employees, setEmployees] = useState<Employee[]>([])
     const ref= useRef<Slider>(null)
     const {ref: observerRef, inView} = useInView({
-        triggerOnce: true
+        triggerOnce: true,
+        
     })
     const [settings, setSettings] = useState<Settings>({
         dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
-        slidesToScroll: 1,
+        slidesToScroll: 5,
         variableWidth: true,
         draggable: false,
         arrows: false,
@@ -52,7 +53,9 @@ selected
 
     useEffect(() => {
         if (inView) {
-            ref.current?.slickPlay()
+            setTimeout(() => {
+                ref.current?.slickPlay()
+            }, 1000)
 
         }
     }, [inView])

@@ -203,12 +203,12 @@ const ThirdSection = ({
                     Топливо <span className="text-accent">опыта</span>
                 </h3>
                 <Image
-                    width={transformPx(189, width)}
-                    height={transformPx(26, width)}
+                    width={transformPx(193, width)}
+                    height={transformPx(36, width)}
                     src="/flying.png"
                 />
             </div>
-            <p className="ml-[7.5rem] text-lg mb-[6.25rem]">
+            <p className="ml-[7.5rem] text-lg mb-[4rem] leading-tight">
                 Где взять топливо опыта, которое так необходимо для новых космических свершений?<br />Можно получить его от выдающихся астронавтов. Раз в неделю космонавты БФТ будут<br /> делиться с нами своим опытом.<br />Внимательно слушая подкасты, вы узнаете вдохновляющие истории из жизни БФТ:<br />как мы развивались, через что прошли и к чему стремимся.
             </p>
             <div className="w-full overflow-hidden relative">
@@ -238,7 +238,7 @@ const ThirdSection = ({
                                     audio={audio}
                                     play={play}
                                     />
-                                    <div className="flex flex-col mt-[5.5rem] relative">
+                                    <div className="flex flex-col mt-[4.5rem] relative">
                                         <span className="text-pale-blue font-bold text-2xl leading-tight">
                                             {
                                                 podcast.day
@@ -254,7 +254,7 @@ const ThirdSection = ({
                                                 podcast.episode
                                             }
                                         </span>
-                                        <span className="text-lg text-white mb-[1rem] h-[2.5rem]">
+                                        <span className="text-lg text-white mb-[0rem] h-[2.5rem]">
                                             {
                                                 podcast.title
                                             }
@@ -264,6 +264,7 @@ const ThirdSection = ({
                                                 src={podcast.ship}
                                                 width={transformPx(148, width)}
                                                 height={transformPx(91, width)}
+                                                priority
                                             />
                                         </span>
                                     </div>
@@ -280,7 +281,7 @@ const ThirdSection = ({
                         animate={{
                             x: transformPx((offsetSlide - 1) * slideWidth + (offsetSlide - 1) * margin, width)
                         }}
-                        className='mt-[2.375rem] h-[1.5rem] flex items-center relative '>
+                        className='mt-[1rem] h-[1.5rem] flex items-center relative '>
                         <svg width={2512 / 16 * 1.11 * width / 100} height={3}>
                             <line x1="0" y1="1" x2={width} y2="1" stroke="white" fill='white'
                                 strokeDasharray="7" strokeWidth={2} />
@@ -333,7 +334,7 @@ const Icon = ({
     console.log(play, audio?.url, podcast.link)
 
     return (
-        <div className="relative h-[7.5rem] flex items-center cursor-pointer"
+        <div className="relative h-[7rem] flex items-center cursor-pointer"
             onMouseEnter={() => {
                 setShow(true)
             }}
@@ -345,19 +346,19 @@ const Icon = ({
                 show ?
                     <PlayButton
                         onClick={onClick}
-                        radius={60}
+                        radius={55}
                         pause={audio?.url === podcast.link && play}
                     />
                     :
                     podcast.icon ?
                         <img src={podcast.icon} alt="slide" className=" "
                             style={{
-                                width: transformPx(podcast.width, width),
-                                height: transformPx(podcast.height, width),
+                                width: transformPx(podcast.width*0.9, width),
+                                height: transformPx(podcast.height*0.9, width),
                             }}
                         />
                         :
-                        <div className="h-[7.5rem]" />
+                        <div className="h-[7rem]" />
             }
 
         </div>

@@ -45,8 +45,8 @@ const NinthSection = () => {
                 <div className="flex items-center">
                     <span className="text-white text-[3.375rem] leading-none font-bold relative bottom-1 mr-[1.25rem]">экипажа</span>
                     <Image
-                        width={transformPx(189, width)}
-                        height={transformPx(26, width)}
+                        width={transformPx(193, width)}
+                        height={transformPx(36, width)}
                         src="/flying.png"
 
                     />

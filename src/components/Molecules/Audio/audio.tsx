@@ -1,7 +1,7 @@
 
 
 import dynamic from 'next/dynamic';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AudioTrack } from '../../Organisms/SeventhSection/seventh-section';
 const ReactAplayer: any = dynamic(() => import('react-aplayer'), { ssr: false });
 
@@ -50,7 +50,7 @@ export const audios: {
     },
 }
 
-
+let interval: NodeJS.Timer | undefined
 
 export const Audio = ({
     audio,
@@ -62,6 +62,14 @@ export const Audio = ({
     play: boolean
 }) => {
     const [AP, setAP] = useState<any>(null)
+    const apRef = useRef<any>()
+
+    useEffect(() => {
+        return () => {
+            clearInterval(interval as any)
+        }
+    }, [])
+
 
 
 
@@ -83,6 +91,7 @@ export const Audio = ({
         if (!audio &&AP) {
             await AP.destroy()
             setAP(null)
+            apRef.current=null
         } else {
             if (!audio && AP) {
                 await AP.pause()
@@ -101,16 +110,30 @@ export const Audio = ({
         if (audio) {
             setAudio(true)
         }
+
+        interval = setInterval(() => {
+            if (apRef.current) {
+            
+                const timeViewed = apRef.current.audio.currentTime
+                console.log(timeViewed)
+            }
+        }, 5000)
     }
 
     const onPause = () => {
         if (audio) {
             setAudio(false)
+            
+        }
+        if (interval) {
+            clearInterval(interval as any)
+            interval = undefined
         }
     }
 
     const init = (ap: any) => {
         setAP(ap)
+        apRef.current = ap
         
     }
 

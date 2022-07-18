@@ -70,7 +70,7 @@ const Header = ({
     return (
         <header className="w-full flex justify-center pl-[5.375rem] pr-[7.5rem] pt-[1.25rem]">
             <div className="w-full  flex justify-between items-center">
-                <Image src="/logo.png" alt="logo" width={150 / 16 * 1.11 * width / 100} height={52 / 16 * 1.11 * width / 100} />
+                <Image src="/logo.png" alt="logo" width={150 / 16 * 1.11 * width / 100} height={52 / 16 * 1.11 * width / 100} priority/>
                 <div className='flex items-center'>
                     <div className='border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] cursor-pointer' onClick={() => handleNavigation(Routes.BFT)}>
                         <span >БФТ=5</span><span className='text-[0.625rem] pt-[1px] leading-none'>2</span>

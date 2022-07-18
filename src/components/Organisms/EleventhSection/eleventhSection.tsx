@@ -15,8 +15,8 @@ const EleventhSection = () => {
                     Строим <span className="text-accent">маршрут</span>
                 </h3>
                 <Image
-                    width={transformPx(189, width)}
-                    height={transformPx(26, width)}
+                    width={transformPx(193, width)}
+                    height={transformPx(36, width)}
                     src="/flying.png"
                 />
             </div>
@@ -36,7 +36,7 @@ const EleventhSection = () => {
                     height={0.68*width}
                     alt="planets"
                     src="/planets.png"
-                    
+                    priority
                 />
                 <motion.div
                     layout

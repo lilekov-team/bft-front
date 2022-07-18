@@ -41,9 +41,10 @@ const EighthSection: React.FC<SectionProps> = ({
                     Рокот космодрома <span className="text-accent">БФТ-25</span>
                 </h3>
                 <Image
-                    width={transformPx(189, width)}
-                    height={transformPx(26, width)}
+                    width={transformPx(193, width)}
+                    height={transformPx(36, width)}
                     src="/flying.png"
+                    priority
                 />
             </div>
             <div className="flex items-center">

@@ -34,7 +34,7 @@ module.exports = {
         "blue-large": "0px 0px 15px #5DF6FF",
       },
       backgroundImage: {
-        "main": "url(/bft-bg.png)" 
+        "main": "url(/bft-bg.jpg)" 
       }
     },
     fontFamily: {
@@ -47,7 +47,7 @@ module.exports = {
       'xl': '1440px'
     },
     backgroundSize: {
-      "main-fill": "100% 100%"
+      "main-fill": "101% 101%"
     },
     dropShadow: {
       "accent": "0px 0px 15px #00E0FF" 

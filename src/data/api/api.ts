@@ -1,7 +1,7 @@
 import axios from "axios"
 import { audios } from "../../components/Molecules/Audio/audio"
 import { AudioTrack } from "../../components/Organisms/SeventhSection/seventh-section"
-import {v4} from 'uuid'
+import { v4 } from 'uuid'
 
 export const sendWords = async (text: string) => {
 
@@ -21,7 +21,7 @@ export interface Winner {
     name: string,
     job: string,
     text: string,
-    amount? : number
+    amount?: number
 }
 
 
@@ -38,7 +38,7 @@ const winners: Winner[] = [
         job: "HR-департамент",
         text: `<strong>Искусственный интеллект соберет все изображения в единый образ</strong>, выучив все снимки. В пятницу результат – первый, приславший снимок получит сумму БФТ-денег и шанс попасть в Эфир финального мероприятия.`,
         amount: 1200,
-    
+
     },
     {
         name: "Иванов Иван",
@@ -196,13 +196,38 @@ export const sendWord = async (text: string) => {
 }
 
 
-export const register = async (name: string, email: string, dep: string):Promise<void> => {
+
+export interface User {
+    name: string,
+    email: string,
+    dep: string
+}
+
+
+export const getUser = (): User | undefined => {
 
 
 
+    const userString = localStorage.getItem("belster-user")
 
 
-    localStorage.setItem("belster-registered","1")
+    if (!userString) {
+        return undefined
+    }
+
+    const user: User = JSON.parse(userString)
+
+    return user
+}
+
+
+export const register = async (name: string, email: string, dep: string): Promise<void> => {
+
+
+    localStorage.setItem("belster-registered", "1")
+    localStorage.setItem("belster-user", JSON.stringify({
+        name, email, dep
+    }))
 
     return new Promise<void>((res, rej) => {
         setTimeout(() => {

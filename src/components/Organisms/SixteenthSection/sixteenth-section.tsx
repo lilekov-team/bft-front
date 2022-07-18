@@ -27,8 +27,8 @@ const SixteenthSection = () => {
                     Итоги <span className="text-accent">интерактива</span>
                 </h3>
                 <Image
-                    width={transformPx(189, width)}
-                    height={transformPx(26, width)}
+                    width={transformPx(193, width)}
+                    height={transformPx(36, width)}
                     src="/flying.png"
                 />
             </div>
@@ -70,6 +70,7 @@ const SixteenthSection = () => {
                 src={"/satelite.png"}
                 width={transformPx( 1109, width)}
                 height={transformPx( 629, width)}
+                priority
                 />
             </div>
         </div>

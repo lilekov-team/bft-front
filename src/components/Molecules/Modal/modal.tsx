@@ -26,7 +26,11 @@ const CustomModal: React.FC<ModalProps> = ({
         <Modal isOpen={open} isCentered={true} closeOnOverlayClick={false} autoFocus={false} onClose={onClose}>
          
             <ModalContent width={'100%'} maxW='53.75rem' background={'transparent'}>
-                <div className='flex justify-center pt-14 pb-16 border-4 border-accent shadow-modal backdrop-blur-[40px] ' >
+                <div className='flex justify-center pt-14 pb-16 border-4 border-accent shadow-modal  '
+                style={{
+                    backdropFilter: 'blur(40px)'
+                }}
+                >
                     {children}
                 </div>
             </ModalContent>

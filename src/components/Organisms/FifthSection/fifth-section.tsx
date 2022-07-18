@@ -17,8 +17,8 @@ const FifthSection = () => {
                     Сбор <span className="text-accent">вещей</span>
                 </h3>
                 <Image
-                    width={transformPx(189, width)}
-                    height={transformPx(26, width)}
+                    width={transformPx(193, width)}
+                    height={transformPx(36, width)}
                     src="/flying.png"
                 />
             </div>

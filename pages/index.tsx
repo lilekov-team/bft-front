@@ -102,7 +102,7 @@ const Home: NextPage = () => {
   console.log(controls)
 
   return (
-    <div className='w-full min-h-[200rem] bg-main bg-main-fill bg-no-repeat pb-[6.25rem] relative'>
+    <div className='w-full min-h-[200rem] bg-center bg-main bg-main-fill bg-no-repeat pb-[6.25rem] relative'>
       <Header
         handleNavigation={handleNavigation}
       />

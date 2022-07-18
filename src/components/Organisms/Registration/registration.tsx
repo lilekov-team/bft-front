@@ -84,7 +84,7 @@ const RegistrationModal = () => {
                 variant={ButtonVariants.FILLED}
                 onClick={submit}
                 >
-                    Оптравить
+                    Отправить
                 </Button>
             </div>
         </CustomModal>
