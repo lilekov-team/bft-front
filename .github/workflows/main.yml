@@ -17,4 +17,4 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: ${{ secrets.PORT }}
-        script: cd /home/nedoroot/front/github.com/lilekov-studio && make bft-front
+        script: cd /home/nedoroot/front/github.com/lilekov-studio && make bft-frontend
