@@ -639,7 +639,7 @@ export const uploadFileToMinio = async (file: File, bucket: buckets): Promise<st
 
 
 
-        return response.data.url
+        return response.data[0].url
 
 
 
