@@ -141,19 +141,6 @@ a {
 }
 
 
-@font-face {
-  font-family: "Verdana";
-  src: url('../fonts/Verdana.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Verdana";
-  src: url('../fonts/Verdana-Bold.ttf');
-  font-weight: bold;
-  font-style: normal;
-}
 
 
 .aplayer-info {

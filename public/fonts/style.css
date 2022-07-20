@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Verdana";
+    src: url('https://minio.kb-takeabreath.ru/articles/Verdana.woff2') format('woff2'),
+        url('https://minio.kb-takeabreath.ru/articles/Verdana.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Verdana";
+    src: url('https://minio.kb-takeabreath.ru/articles/Verdana-Bold.woff2') format('woff2'),
+        url('https://minio.kb-takeabreath.ru/articles/Verdana-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
