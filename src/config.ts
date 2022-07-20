@@ -1,1 +1,1 @@
-export const API_URL = process.env.NODE_ENV === 'production' ?  "https://25.bftcom.com/api" : "https://25.bftcom.com/api"
+export const API_URL = process.env.NODE_ENV === 'production' ?  "http://82.202.165.88:8085" : "http://82.202.165.88:8085"
