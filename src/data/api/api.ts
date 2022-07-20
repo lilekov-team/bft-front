@@ -3,15 +3,44 @@ import { audios } from "../../components/Molecules/Audio/audio"
 import { AudioTrack } from "../../components/Organisms/SeventhSection/seventh-section"
 import { v4 } from 'uuid'
 import ym from 'react-yandex-metrika';
+import { API_URL } from "../../config";
+
+
+
+
+
+
+
+
+
 
 export const sendWords = async (text: string) => {
 
 
-    return new Promise<void>((res, rej) => {
-        setTimeout(() => {
-            res()
-        }, 500)
-    })
+    const url = API_URL + "/contest"
+
+    const jwt = getJwt()
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
+
+    try {
+        const response = await axios.post(url, {
+            collection: text
+        }, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка отправки")
+    }
 
 }
 
@@ -69,19 +98,34 @@ export const uploadFile = async (
 ): Promise<void> => {
 
 
-    const formData = new FormData();
 
-    formData.append(`file`, file);
-    formData.append('text', text)
+    const url = API_URL + "/contest/engine-starting"
+
+    const jwt = getJwt()
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
+
+    try {
+        const link = await uploadFileToMinio(file, buckets.engine)
 
 
-    return new Promise<void>((res, rej) => {
-        setTimeout(() => {
-            res()
-        }, 500)
-    })
-};
+        const response = await axios.post(url, {
+            "engine_starting": text,
+            "engine_starting_sound": link
+        }, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
 
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка загрузки")
+    }
+}
 
 
 export const fetchTrack = async (): Promise<AudioTrack> => {
@@ -103,17 +147,32 @@ export const uploadVideo = async (
 ): Promise<void> => {
 
 
-    const formData = new FormData();
+    const url = API_URL + "/contest/crew-training"
 
-    formData.append(`file`, file);
+    const jwt = getJwt()
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
+
+    try {
+        const link = await uploadFileToMinio(file, buckets.crew)
 
 
+        const response = await axios.post(url, {
 
-    return new Promise<void>((res, rej) => {
-        setTimeout(() => {
-            res()
-        }, 500)
-    })
+            "crew-training": link
+        }, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка загрузки")
+    }
 };
 
 
@@ -123,26 +182,36 @@ export const uploadPlot = async (
 ): Promise<void> => {
 
 
-    const formData = new FormData();
+    const url = API_URL + "/contest/engine-starting"
 
-    if (file) {
-        formData.append(`file`, file);
+    const jwt = getJwt()
 
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
     }
 
+    try {
+        let link: string | undefined
+        if (file) {
 
-    if (text) {
-        formData.append(`text`, text);
+            link = await uploadFileToMinio(file, buckets.engine)
+        }
+
+
+        const response = await axios.post(url, {
+            "camera_motor": text,
+            "camera_motor_movies": link
+        }, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка загрузки")
     }
-
-
-
-
-    return new Promise<void>((res, rej) => {
-        setTimeout(() => {
-            res()
-        }, 500)
-    })
 };
 
 
@@ -176,23 +245,66 @@ export const getGameWinners = async (): Promise<Winner[]> => {
 export const sendPodcastVote = async (text: string) => {
 
 
-    return new Promise<void>((res, rej) => {
-        setTimeout(() => {
-            res()
-        }, 500)
-    })
+
+    const url = API_URL + "/contest/out-orbit"
+
+    const jwt = getJwt()
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
+
+
+    const data = {
+        "out-orbit": text
+    }
+
+    try {
+        const response = await axios.post(url, data, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка отправки")
+    }
 
 }
 
 
 export const sendWord = async (text: string) => {
+    const url = API_URL + "/contest/out-orbit"
+
+    const jwt = getJwt()
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
 
 
-    return new Promise<void>((res, rej) => {
-        setTimeout(() => {
-            res()
-        }, 500)
-    })
+    const data = {
+        "heard_podcasts": text
+    }
+
+    try {
+        const response = await axios.post(url, data, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка отправки")
+    }
 
 }
 
@@ -221,8 +333,6 @@ export const getUser = (): User | undefined => {
 
 
 export const register = async (name: string, email: string, dep: string): Promise<void> => {
-
-
     localStorage.setItem("belster-registered", "1")
     localStorage.setItem("belster-user", JSON.stringify({
         email
@@ -233,8 +343,36 @@ export const register = async (name: string, email: string, dep: string): Promis
             res()
         }, 500)
     })
+}
+
+
+export const auth = async (jwt: string) => {
+    const url = API_URL + "/contest"
+
+
+    try {
+        const response = await axios.post(url, {}, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+        const user = {
+            email: response.data.email
+        }
+
+        localStorage.setItem("belster-registered", "1")
+        localStorage.setItem("belster-user", JSON.stringify(user))
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка авторизации")
+    }
 
 }
+
+
 
 
 
@@ -401,14 +539,14 @@ export const ymAuth = () => {
 
 
 export const viewVideo = (title: string, percentage: number) => {
-    ym( 'reachGoal', 'Просмотр видео', {
+    ym('reachGoal', 'Просмотр видео', {
         title,
         viewed: percentage
     })
 }
 
 export const listenAudio = (title: string, percentage: number) => {
-    ym( 'reachGoal', 'Прослушивание аудио', {
+    ym('reachGoal', 'Прослушивание аудио', {
         title,
         viewed: percentage
     })
@@ -419,7 +557,95 @@ export const listenAudio = (title: string, percentage: number) => {
 
 
 export const viewSection = (title: string) => {
-    ym( 'reachGoal', 'Просмотр раздела', {
+    ym('reachGoal', 'Просмотр раздела: ' + title, {
         title,
     })
+}
+
+
+
+
+export const getJwt = () => {
+    return localStorage.getItem('belster-jwt')
+}
+
+
+
+
+export const heardPodcasts = async (podcast: string) => {
+
+    const url = API_URL + "/contest/out-orbit"
+
+    const jwt = getJwt()
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
+
+
+    const data = {
+        "heard_podcasts": podcast
+    }
+
+    try {
+        const response = await axios.post(url, data, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка отправки")
+    }
+}
+
+
+
+enum buckets {
+    engine = "engine-starting-sound",
+    crew = "crew-training",
+    camera = "camera-motor-movies"
+}
+
+
+
+
+export const uploadFileToMinio = async (file: File, bucket: buckets): Promise<string> => {
+
+    const formData = new FormData();
+
+
+    formData.append(`file`, file);
+
+    const url = API_URL + '/contest/upload'
+
+    const jwt = getJwt()
+
+
+    if (!jwt) {
+        throw new Error("Вы не авторизованы")
+    }
+
+    try {
+        const response = await axios.post(url, formData, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+
+        return response.data.url
+
+
+
+    } catch (err) {
+        console.log(err)
+        throw new Error("Ошибка отправки")
+    }
+
 }

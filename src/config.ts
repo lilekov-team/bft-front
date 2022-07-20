@@ -1,0 +1,1 @@
+export const API_URL = process.env.NODE_ENV === 'production' ?  "https://25.bftcom.com/api" : "https://25.bftcom.com/api"
