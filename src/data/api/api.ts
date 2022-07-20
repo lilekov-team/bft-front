@@ -17,7 +17,7 @@ import { API_URL } from "../../config";
 export const sendWords = async (text: string) => {
 
 
-    const url = API_URL + "/contest"
+    const url = API_URL + "/contest/"
 
     const jwt = getJwt()
 
@@ -365,8 +365,8 @@ export const auth = async (jwt: string) => {
         localStorage.setItem("belster-user", JSON.stringify(user))
 
 
-    } catch (err) {
-        console.log(err)
+    } catch (err: any) {
+        console.log(err.request)
         throw new Error("Ошибка авторизации")
     }
 
