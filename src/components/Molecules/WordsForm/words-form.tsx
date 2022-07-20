@@ -33,6 +33,7 @@ const WordsForm = () => {
             .then(() => {
                 toast("", "success", "Успешно отправлено")
                 setText("")
+                setCount(0)
             })
             .catch((err) => {
                 toast("", "error", err.message)

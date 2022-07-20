@@ -7,6 +7,8 @@ import { useEffect, useState } from "react"
 import PlayButton from "../../Atoms/PlayButton/playButton"
 import { AudioTrack } from "../SeventhSection/seventh-section"
 import { audios } from "../../Molecules/Audio/audio"
+import { useInView } from "react-intersection-observer"
+import { viewSection } from "../../../data/api/api"
 
 interface Podcast {
     type: "audio" | "video",
@@ -14,7 +16,7 @@ interface Podcast {
     width: number,
     height: number,
     ship: string,
-    link: string,
+    link?: string,
     day: string,
     date: string,
     episode: string,
@@ -56,8 +58,7 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod3.png",
         ship: "/rocket3.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
-        title: "«25 лет за 25 слов» ",
+        title: "«25 слов» ",
         type: "audio",
         width: 202,
     },
@@ -68,7 +69,6 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod4.png",
         ship: "/rocket4.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         title: "«Звуки вселенной»",
         type: "audio",
         width: 120,
@@ -80,7 +80,6 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod5.png",
         ship: "/rocket5.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         title: "«Источник энергии»",
         type: "audio",
         width: 132,
@@ -92,7 +91,6 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "",
         ship: "/rocket6.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         title: "«Ценности окрыляют»",
         type: "audio",
         width: 120,
@@ -104,7 +102,6 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod7.png",
         ship: "/rocket7.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         title: "«Посыл во вселенную»",
         type: "audio",
         width: 160,
@@ -116,7 +113,6 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod8.png",
         ship: "/rocket8.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         title: "«Землю в иллюминаторе»",
         type: "audio",
         width: 120,
@@ -128,7 +124,6 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod9.png",
         ship: "/rocket9.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
         title: "«Посыл во вселенную»",
         type: "audio",
         width: 120,
@@ -140,7 +135,7 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod10.png",
         ship: "/rocket10.png",
-        link: "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav",
+
         title: "«Прощай, Земля!»",
         type: "audio",
         width: 116,
@@ -152,18 +147,32 @@ const ThirdSection = ({
     playAudio,
     playVideo,
     audio,
-    play
+    play,
+    togglePlay
 }: {
     playAudio: (src?: AudioTrack) => void,
     playVideo: (src: string) => void,
     audio: AudioTrack | undefined,
-    play: boolean
+    play: boolean,
+    togglePlay: (play: boolean) => void,
 }) => {
     const { width } = useWindowDimensions()
     const [slide, setSlide] = useState(1)
     const [offsetSlide, setOffsetSlide] = useState(1)
     const slideWidth = 220
     const margin = 57
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Топливо опыта")
+        }
+    }, [inView])
+
+
 
     useEffect(() => {
         const today = moment()
@@ -172,7 +181,7 @@ const ThirdSection = ({
             const d = moment(dates[i], "DD.MM.yyyy")
 
             if (today.isBefore(d)) {
-                console.log(i)
+         
                 setOffsetSlide(i + 1)
                 setSlide(i + 1)
                 break
@@ -184,20 +193,22 @@ const ThirdSection = ({
     const handlePlay = (podcast: Podcast) => {
         if (podcast.type === "audio") {
             if (play && podcast.link === audio?.url ) {
-                playAudio()
+                togglePlay(!play)
             }else {
-                playAudio(audios[podcast.link])
+                playAudio(audios[podcast.link!!])
             }
 
 
         } else {
-            playVideo(podcast.link)
+            playVideo(podcast.link!!)
         }
     }
 
 
+    console.log(offsetSlide)
+
     return (
-        <div id="fuel" className="w-full flex flex-col mt-[12.5rem]">
+        <div ref={ref} id="fuel" className="w-full flex flex-col mt-[12.5rem]">
             <div className="flex items-center mb-[1.875rem] ml-[7.5rem]">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Топливо <span className="text-accent">опыта</span>
@@ -217,21 +228,25 @@ const ThirdSection = ({
                         x: 120 / 16 * 1.11 * width / 100
                     }}
                     animate={{
-                        x: transformPx(120 - (offsetSlide - 1) * slideWidth + (offsetSlide - 1) * margin, width)
+                        x: transformPx(120 - ((Math.min(offsetSlide - 1, 6)) * slideWidth + (Math.min(offsetSlide - 1, 6)) * margin), width)
                     }}
                     className="flex flex-row w-[157rem]">
                     {
                         podcasts.map((podcast, index) => {
                             return (
-                                <div key={index} className="flex flex-col"
+                                <div key={index} className="flex flex-col cursor-pointer"
                                     style={{
                                         minWidth: transformPx(slideWidth, width),
                                         marginRight: index < podcasts.length - 1 ? transformPx(margin, width) : 0
                                     }}
+                                    onClick={() => {
+                                        setSlide(index + 1)
+                                        setOffsetSlide(index+1)
+                                    }}
                                 >
                                     <Icon
                                     onClick={() => {
-                                        setSlide(index + 1)
+                                        
                                         handlePlay(podcast)
                                     }}
                                     podcast={podcast}
@@ -279,11 +294,15 @@ const ThirdSection = ({
                             x: 120 / 16 * 1.11 * width / 100
                         }}
                         animate={{
-                            x: transformPx((offsetSlide - 1) * slideWidth + (offsetSlide - 1) * margin, width)
+                            x: - transformPx(((Math.min(offsetSlide - 1, 6)) * slideWidth + (Math.min(offsetSlide - 1, 6)) * margin), width)
                         }}
-                        className='mt-[1rem] h-[1.5rem] flex items-center relative '>
-                        <svg width={2512 / 16 * 1.11 * width / 100} height={3}>
-                            <line x1="0" y1="1" x2={width} y2="1" stroke="white" fill='white'
+                        className='mt-[1rem] h-[1.5rem] flex items-center relative '
+                        style={{
+                            width: transformPx(slideWidth * (podcasts.length - 1) + margin * (podcasts.length + 1), width)
+                        }}
+                        >
+                        <svg width={transformPx(slideWidth * (podcasts.length  - 1) + margin * (podcasts.length  + 1), width)} height={3}>
+                            <line x1="0" y1="1" x2={transformPx(slideWidth * (podcasts.length -1) + margin * (podcasts.length +1), width)} y2="1" stroke="white" fill='white'
                                 strokeDasharray="7" strokeWidth={2} />
                         </svg>
                         <motion.div
@@ -291,7 +310,7 @@ const ThirdSection = ({
                                 width: "0rem",
                             }}
                             animate={{
-                                width: transformPx(130 + (slide - 1) * slideWidth + (slide - 1) * margin, width)
+                                width: transformPx(130  +  ((slide - 1) * slideWidth + (slide - 1) * margin), width)
                             }}
                             className=' left-0 absolute bg-pale-blue h-[0.625rem] shadow-blue'>
 
@@ -331,12 +350,14 @@ const Icon = ({
     const [show, setShow] = useState(false)
 
 
-    console.log(play, audio?.url, podcast.link)
+
 
     return (
-        <div className="relative h-[7rem] flex items-center cursor-pointer"
+        <div className={`relative h-[7rem] flex items-center ${podcast.link ? 'cursor-pointer' : 'cursor-default'}`}
             onMouseEnter={() => {
-                setShow(true)
+                if (podcast.link) {
+                    setShow(true)
+                }
             }}
             onMouseLeave={() => {
                 setShow(false)

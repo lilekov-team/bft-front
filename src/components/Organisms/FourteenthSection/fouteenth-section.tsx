@@ -1,10 +1,20 @@
 import { Fragment, useEffect, useState } from "react"
-import { getPlotWinners, Winner } from "../../../data/api/api"
+import { useInView } from "react-intersection-observer"
+import { getPlotWinners, viewSection, Winner } from "../../../data/api/api"
 import Video from "../../Atoms/Video/video"
 
 const FourteenthSection = () => {
     const [winners, setWinners] = useState<Winner[]>([])
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Итоги конкурса")
+        }
+    }, [inView])
 
     useEffect(() => {
         getPlotWinners()
@@ -17,7 +27,7 @@ const FourteenthSection = () => {
     }, [])
 
     return (
-        <div className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex justify-between mb-[6.25rem]">
                 <div className="flex flex-col">
                     <div className="flex items-center mb-[1.875rem] ">

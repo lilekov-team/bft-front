@@ -49,11 +49,13 @@ const audios: AudioTrack[] = [
 const SeventhSection = ({
     playAudio,
     audio,
-    play
+    play,
+    togglePlay
 }: {
     playAudio: (src?: AudioTrack) => void,
     audio: AudioTrack | undefined,
-    play: boolean
+    play: boolean,
+    togglePlay: (play: boolean) => void,
 }) => {
     const { width } = useWindowDimensions()
     const [file, setFile] = useState<File | undefined>()
@@ -139,6 +141,7 @@ const SeventhSection = ({
                             track={track}
                             playAudio={playAudio}
                             play={play}
+                            togglePlay={togglePlay}
                         />
                     })
                 }
@@ -153,12 +156,14 @@ const Track = ({
     audio,
     playAudio,
     track,
-    play
+    play,
+    togglePlay
 }: {
     track: AudioTrack,
     playAudio: (src?: AudioTrack) => void,
     audio: AudioTrack | undefined,
-    play: boolean
+    play: boolean,
+    togglePlay: (play: boolean) => void,
 }) => {
 
     const [hover, setHover] = useState(false)
@@ -173,7 +178,12 @@ const Track = ({
             }}
             className="w-full border-2 border-transparent hover:border-accent flex items-center p-[0.6rem] cursor-pointer"
             onClick={() => {
-                playAudio(audio?.url === track.url && play ? undefined : track)
+                if (audio?.url === track.url) {
+                    togglePlay(!play)
+                } else {
+                    
+                    playAudio(audio?.url === track.url && play ? undefined : track)
+                }
             }}>
             <div className="w-[6.25rem] h-[6.25rem] flex justify-center items-center relative">
                 <img src={track.cover} alt="cover" className="w-[6.25rem] h-[6.25rem]" />

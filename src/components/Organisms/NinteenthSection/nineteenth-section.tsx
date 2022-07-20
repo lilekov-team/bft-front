@@ -1,12 +1,25 @@
+import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
+import { viewSection } from "../../../data/api/api"
 import Video from "../../Atoms/Video/video"
 
 const NineteenthSection = () => {
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Ключ на старт")
+        }
+    }, [inView])
 
 
 
 
     return (
-        <div className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Ключ на <span className="text-accent">старт</span>

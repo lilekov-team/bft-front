@@ -1,6 +1,7 @@
 import Image from "next/image"
-import { useState } from "react"
-import { uploadVideo } from "../../../data/api/api"
+import { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
+import { uploadVideo, viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { useCustomToast } from "../../../hooks/toast"
 import { transformPx } from "../../../utils/utils"
@@ -11,6 +12,19 @@ const NinthSection = () => {
     const [file, setFile] = useState<File | undefined>()
     const [loading, setLoading] = useState(false)
     const toast = useCustomToast()
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Подготовка экипажа")
+        }
+    }, [inView])
+
+
+
 
     const send = () => {
         if (!file) return
@@ -37,7 +51,7 @@ const NinthSection = () => {
     }
 
     return (
-        <div id="prepare" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0 ">
+        <div ref={ref} id="prepare" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0 ">
             <div className="flex flex-col  mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text-accent ">
                     Подготовка

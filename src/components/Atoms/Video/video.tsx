@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { BigPlayButton, Player, PlayerReference } from 'video-react'
+import { viewVideo } from '../../../data/api/api'
 
 
 
@@ -30,8 +31,11 @@ const Video: React.FC<VideoProps> = ({
     const onPlay = () => {
         interval = setInterval(() => {
             const timeViewed = ref.current.video.video.currentTime
-            console.log(timeViewed)
-        }, 5000)
+            const total = ref.current.video.video.duration
+
+
+            viewVideo(src ?? "", timeViewed/(total + 1 ))
+        }, 10000)
     }
 
     const onPause = () => {

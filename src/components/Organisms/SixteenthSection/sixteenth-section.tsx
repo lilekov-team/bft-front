@@ -1,13 +1,23 @@
 import Image from "next/image"
 import { Fragment, useEffect, useState } from "react"
-import { getGameWinners, Winner } from "../../../data/api/api"
+import { useInView } from "react-intersection-observer"
+import { getGameWinners, viewSection, Winner } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
 
 const SixteenthSection = () => {
     const { width } = useWindowDimensions()
     const [winners, setWinners] = useState<Winner[]>([])
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Итоги интерактива")
+        }
+    }, [inView])
 
 
     useEffect(() => {
@@ -21,7 +31,7 @@ const SixteenthSection = () => {
     },[])
 
     return (
-        <div className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Итоги <span className="text-accent">интерактива</span>

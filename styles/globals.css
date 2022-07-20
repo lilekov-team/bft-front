@@ -176,6 +176,21 @@ a {
   fill: white!important;
 }
 
+
+.aplayer-played, .aplayer-volume {
+  background: var(--accent)!important;
+}
+
+
+.aplayer-miniswitcher {
+  display: none!important;
+}
+
+
+.aplayer-body {
+  padding-right: 0px !important;
+}
+
 /* .aplayer-fixed {
   left: 50%!important;
   transform: translateX(-50%);

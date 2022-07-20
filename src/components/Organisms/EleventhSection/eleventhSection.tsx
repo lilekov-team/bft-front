@@ -2,14 +2,26 @@ import Image from "next/image"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
 import { motion } from 'framer-motion'
+import { useInView } from "react-intersection-observer"
+import { useEffect } from "react"
+import { viewSection } from "../../../data/api/api"
 
 
 const EleventhSection = () => {
     const { width } = useWindowDimensions()
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Строим маршрут")
+        }
+    }, [inView])
 
     return (
-        <div id="route" className="w-full flex flex-col mt-[12.5rem]  relative z-0">
+        <div ref={ref} id="route" className="w-full flex flex-col mt-[12.5rem]  relative z-0">
             <div className="flex items-center mb-[1.875rem] z-20 px-[7.5rem]">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Строим <span className="text-accent">маршрут</span>

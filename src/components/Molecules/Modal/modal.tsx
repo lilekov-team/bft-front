@@ -20,7 +20,6 @@ const CustomModal: React.FC<ModalProps> = ({
 
 
 
-    console.log(open)
 
     return (
         <Modal isOpen={open} isCentered={true} closeOnOverlayClick={false} autoFocus={false} onClose={onClose}>

@@ -11,6 +11,7 @@ export enum Routes {
     Works = "works",
     Exit = "exit",
     Auction = "auction",
+    Navigation = "navigation"
 
 }
 

@@ -1,8 +1,9 @@
 import { AnimatePresence, motion } from "framer-motion"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaTimes } from "react-icons/fa"
-import { Employee } from "../../../data/api/api"
+import { useInView } from "react-intersection-observer"
+import { Employee, viewSection } from "../../../data/api/api"
 
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
@@ -19,7 +20,16 @@ const TwelthSection = () => {
 
     const { width } = useWindowDimensions()
     const [selected, setSelected] = useState<Employee | undefined>()
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Наши звезды")
+        }
+    }, [inView])
 
 
     const selectEmployee = (employee?: Employee) => {
@@ -27,7 +37,7 @@ const TwelthSection = () => {
     }
 
     return (
-        <div className="w-full flex flex-col   relative z-0">
+        <div ref={ref} className="w-full flex flex-col   relative z-0">
             <div className="flex justify-between pl-[7.5rem] pr-[5.25rem]">
                 <div className="flex flex-col">
 

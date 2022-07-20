@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
+import { listenAudio } from '../../../data/api/api';
 import { AudioTrack } from '../../Organisms/SeventhSection/seventh-section';
 const ReactAplayer: any = dynamic(() => import('react-aplayer'), { ssr: false });
 
@@ -22,7 +23,7 @@ export const audios: {
         name: 'BFT',
         artist: 'BFT',
         url: 'https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav',
-        cover: '/logo.png',
+        cover: '/logo-square.png',
     },
     "/David_Bowie_-_Ground_Control_to_Major_Tom_64090800.mp3": {
         url: "/David_Bowie_-_Ground_Control_to_Major_Tom_64090800.mp3",
@@ -55,11 +56,14 @@ let interval: NodeJS.Timer | undefined
 export const Audio = ({
     audio,
     setAudio,
-    play
+    play, 
+    showClose
 }: {
     audio: AudioTrack | undefined,
     setAudio: (play: boolean) => void,
-    play: boolean
+    play: boolean,
+    showClose: (show: boolean) => void
+
 }) => {
     const [AP, setAP] = useState<any>(null)
     const apRef = useRef<any>()
@@ -83,12 +87,15 @@ export const Audio = ({
         
         if (play && AP?.paused) {
             AP.play()
+        } else  if (AP) {
+            AP.pause()
         }
     }, [play])
 
     const toggle = async () => {
 
         if (!audio &&AP) {
+            showClose(false)
             await AP.destroy()
             setAP(null)
             apRef.current=null
@@ -110,14 +117,20 @@ export const Audio = ({
         if (audio) {
             setAudio(true)
         }
-
+        if (interval) {
+            clearInterval(interval as any)
+        }
         interval = setInterval(() => {
             if (apRef.current) {
             
                 const timeViewed = apRef.current.audio.currentTime
-                console.log(timeViewed)
+                const total = apRef.current.audio.duration
+
+
+                listenAudio(audio?.name ?? "", timeViewed/(total + 1 ))
+              
             }
-        }, 5000)
+        }, 10000)
     }
 
     const onPause = () => {
@@ -133,8 +146,9 @@ export const Audio = ({
 
     const init = (ap: any) => {
         setAP(ap)
-        apRef.current = ap
         
+        apRef.current = ap
+        showClose(true)
     }
 
 

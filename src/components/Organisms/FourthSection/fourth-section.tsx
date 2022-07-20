@@ -1,12 +1,24 @@
+import { useEffect } from "react"
+import { useInView } from "react-intersection-observer"
+import { viewSection } from "../../../data/api/api"
 import Video from "../../Atoms/Video/video"
 
 const FourthSection = () => {
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Проверка связи")
+        }
+    }, [inView])
 
 
 
     return (
-        <div className="w-full flex flex-col mt-[12.5rem] px-[7.5rem]">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem]">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Проверка <span className="text-accent">связи</span>

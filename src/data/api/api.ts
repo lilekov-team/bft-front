@@ -2,6 +2,7 @@ import axios from "axios"
 import { audios } from "../../components/Molecules/Audio/audio"
 import { AudioTrack } from "../../components/Organisms/SeventhSection/seventh-section"
 import { v4 } from 'uuid'
+import ym from 'react-yandex-metrika';
 
 export const sendWords = async (text: string) => {
 
@@ -198,9 +199,7 @@ export const sendWord = async (text: string) => {
 
 
 export interface User {
-    name: string,
     email: string,
-    dep: string
 }
 
 
@@ -226,7 +225,7 @@ export const register = async (name: string, email: string, dep: string): Promis
 
     localStorage.setItem("belster-registered", "1")
     localStorage.setItem("belster-user", JSON.stringify({
-        name, email, dep
+        email
     }))
 
     return new Promise<void>((res, rej) => {
@@ -385,4 +384,42 @@ export const getEmployees = async (): Promise<Employee[]> => {
         }, 500)
     })
 
+}
+
+
+
+const counter = 89595157
+
+export const ymAuth = () => {
+    const user = getUser()
+
+    if (user) {
+        ym('params', { email: user.email })
+    }
+}
+
+
+
+export const viewVideo = (title: string, percentage: number) => {
+    ym( 'reachGoal', 'Просмотр видео', {
+        title,
+        viewed: percentage
+    })
+}
+
+export const listenAudio = (title: string, percentage: number) => {
+    ym( 'reachGoal', 'Прослушивание аудио', {
+        title,
+        viewed: percentage
+    })
+}
+
+
+
+
+
+export const viewSection = (title: string) => {
+    ym( 'reachGoal', 'Просмотр раздела', {
+        title,
+    })
 }

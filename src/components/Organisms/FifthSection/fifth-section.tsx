@@ -1,5 +1,7 @@
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
+import { viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
 import WordsForm from "../../Molecules/WordsForm/words-form"
@@ -7,11 +9,20 @@ import WordsForm from "../../Molecules/WordsForm/words-form"
 const FifthSection = () => {
    
     const { width } = useWindowDimensions()
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Сбор вещей")
+        }
+    }, [inView])
     
 
     return (
-        <div id="collect" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref}  id="collect" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Сбор <span className="text-accent">вещей</span>

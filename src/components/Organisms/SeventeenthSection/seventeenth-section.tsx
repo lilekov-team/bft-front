@@ -1,7 +1,8 @@
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { FaCheck } from "react-icons/fa"
-import { sendPodcastVote } from "../../../data/api/api"
+import { useInView } from "react-intersection-observer"
+import { sendPodcastVote, viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { useCustomToast } from "../../../hooks/toast"
 import { transformPx } from "../../../utils/utils"
@@ -28,6 +29,16 @@ const SeventeenthSection = () => {
     const [loading, setLoading] = useState(false)
     const toast = useCustomToast()
     const [disable, setDisable] = useState(false)
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Выход за пределы орбиты")
+        }
+    }, [inView])
 
     const handleSelect = (option: string) => {
         if (option === selected) {
@@ -60,7 +71,7 @@ const SeventeenthSection = () => {
 
     return (
 
-        <div id="exit" className="w-full flex flex-col mt-[32.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} id="exit" className="w-full flex flex-col mt-[32.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Выход <span className="text-accent">за пределы</span>{" "}орбиты

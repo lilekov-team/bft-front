@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEventHandler } from "react"
-import { register } from "../../../data/api/api"
+import { register, ymAuth } from "../../../data/api/api"
 import { useCustomToast } from "../../../hooks/toast"
 import Button, { ButtonVariants } from "../../Atoms/Button/button"
 import CustomModal from "../../Molecules/Modal/modal"
@@ -40,6 +40,13 @@ const RegistrationModal = () => {
         setDep(e.target.value)
     }
 
+
+
+    useEffect(() => {
+        if (registered) {
+            ymAuth()
+        }
+    }, [registered])
 
 
     const submit = () => {

@@ -1,9 +1,10 @@
 import Image from "next/image"
 import { Fragment, useEffect, useState } from "react"
-import { getWinners, Winner } from "../../../data/api/api"
+import { getWinners, viewSection, Winner } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
 import { AnimatePresence, motion } from 'framer-motion'
+import { useInView } from "react-intersection-observer"
 
 
 
@@ -17,7 +18,16 @@ const SixthSection = () => {
         winner: Winner
     } | undefined>()
     const [winners, setWinners] = useState<Winner[]>([])
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
 
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Итоги конкурса")
+        }
+    }, [inView])
 
     useEffect(() => {
         getWinners()
@@ -30,7 +40,7 @@ const SixthSection = () => {
     }, [])
 
     return (
-        <div className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] z-10">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Итоги <span className="text-accent">конкурса</span>

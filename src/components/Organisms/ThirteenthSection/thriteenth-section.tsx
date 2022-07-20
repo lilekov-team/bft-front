@@ -1,5 +1,6 @@
-import { ChangeEventHandler, useState } from "react"
-import { uploadPlot } from "../../../data/api/api"
+import { ChangeEventHandler, useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
+import { uploadPlot, viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { useCustomToast } from "../../../hooks/toast"
 import FileUpload from "../../Atoms/FileUpload/file-upload"
@@ -14,6 +15,17 @@ const ThirteenthSection = () => {
     const [file, setFile] = useState<File | undefined>()
     const toast = useCustomToast()
     const [loading, setLoading] = useState(false)
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Камера, мотор")
+        }
+    }, [inView])
+
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
 
@@ -46,7 +58,7 @@ const ThirteenthSection = () => {
     }
 
     return (
-        <div className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Камера, мотор, <span className="text-accent">&quot;Поехали!&quot;</span>

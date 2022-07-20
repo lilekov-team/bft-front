@@ -21,7 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <title>BFT</title>
       </Head>
       <ChakraProvider theme={theme}>
-        <Script
+        {/* <Script
           strategy='afterInteractive'
           id="metrika"
           dangerouslySetInnerHTML={{
@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     });`
           }}
           type="text/javascript"
-        />
+        /> */}
         <LanguageProvider>
           <Component {...pageProps} />
         </LanguageProvider>

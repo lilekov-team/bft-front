@@ -1,5 +1,6 @@
-import { ChangeEventHandler, useState } from "react"
-import { sendWord } from "../../../data/api/api"
+import { ChangeEventHandler, useEffect, useState } from "react"
+import { useInView } from "react-intersection-observer"
+import { sendWord, viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { useCustomToast } from "../../../hooks/toast"
 import Button, { ButtonVariants } from "../../Atoms/Button/button"
@@ -10,6 +11,16 @@ const EighteenthSection = () => {
     const [disable, setDisable] = useState(false)
     const [loading, setLoading] = useState(false)
     const toast = useCustomToast()
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Подкасты квиз")
+        }
+    }, [inView])
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
         let v = e.target.value
@@ -43,7 +54,7 @@ const EighteenthSection = () => {
 
 
     return (
-        <div className="w-full px-[7.5rem] flex flex-col mt-[12.5rem]">
+        <div ref={ref} className="w-full px-[7.5rem] flex flex-col mt-[12.5rem]">
             <p className="text-accent text-2xl font-bold mb-[1rem]">
                 А теперь выясним, кто внимательнее всех слушал подкасты.
             </p>
