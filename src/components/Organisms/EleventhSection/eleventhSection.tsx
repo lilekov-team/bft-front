@@ -86,7 +86,7 @@ const EleventhSection = () => {
                     layoutDependency={width}
                     whileHover={{
                         height: transformPx(250, width),
-                        width: transformPx(310, width),
+                        width: transformPx(320, width),
                     }}
                     style={{
                         width: transformPx(160, width),
@@ -147,8 +147,8 @@ const EleventhSection = () => {
                     layout
                     whileHover={{
                         height: transformPx(200, width),
-                        width: transformPx(300, width),
-                        left: transformPx(1120, width),
+                        width: transformPx(325, width),
+                        left: transformPx(1050, width),
 
                     }}
                     layoutDependency={width}

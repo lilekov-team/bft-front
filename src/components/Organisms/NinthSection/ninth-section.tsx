@@ -12,7 +12,7 @@ const NinthSection = () => {
     const [file, setFile] = useState<File | undefined>()
     const [loading, setLoading] = useState(false)
     const toast = useCustomToast()
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true
     })
 
@@ -79,10 +79,21 @@ const NinthSection = () => {
                     А знают ли наши юные спутники, как проходят рабочие дни<br />
                     родителей? Предлагаем спросить их об этом.
                 </p>
-                <p className="text-lg text-white mb-[2rem]">
-                    Скачайте инструкцию, которая поможет задать правильные<br />вопросы и выбрать нужный ракурс.
-
+                <p className="text-lg text-white ">
+                    Скачайте инструкцию, которая поможет задать правильные
                 </p>
+                <div className="flex items-center mb-[2rem] text-lg text-white">
+                    вопросы и выбрать нужный ракурс.
+                    <a target={"_blank"} rel="noopener noreferrer" className="inline-block cursor-pointer ml-[2.5rem]">
+                        <img src="/i-blue.png" alt="info"
+                            style={{
+                                width: '2rem',
+                                height: '2rem',
+                            }}
+                        />
+                    </a>
+                </div>
+
                 <p className="text-lg text-white">
                     Присылайте видео, и в пятницу вы увидите, какой шедевр<br />из этого получится.
 

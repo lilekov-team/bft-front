@@ -14,7 +14,7 @@ const FifteenthSection = () => {
 
     useEffect(() => {
         if (inView) {
-            viewSection("Итоги интерактива")
+            viewSection("Пусконаладочные работы")
         }
     }, [inView])
 
@@ -23,7 +23,7 @@ const FifteenthSection = () => {
         <div ref={ref} id="works" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
-                    Итоги <span className="text-accent">интерактива</span>
+                    Пусконаладочные <span className="text-accent">работы</span>
                 </h3>
                 <Image
                     width={transformPx(193, width)}
@@ -45,7 +45,12 @@ const FifteenthSection = () => {
                             Собирайте команду и читайте инструкцию.
                         </p>
                         <a target={"_blank"} rel="noopener noreferrer"  className="cursor-pointer ml-[2.5rem]">
-                            <img src="/i-blue.png" alt="info" />
+                            <img src="/i-blue.png" alt="info" 
+                            style={{
+                                width: '2rem',
+                                height: '2rem',
+                            }}
+                            />
                         </a>
                     </div>
                     <p className="text-white text-lg">

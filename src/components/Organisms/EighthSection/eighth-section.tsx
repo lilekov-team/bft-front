@@ -62,11 +62,10 @@ const EighthSection: React.FC<SectionProps> = ({
             <div className="flex items-center">
                 <div className="flex flex-col mr-[12.5rem]">
                     <p className="text-accent font-bold text-2xl leading-snug">
-                        Только по-настоящему сплоченная команда<br />
-                        способна создать такой шедевр.
+                    Только по-настоящему сплоченная Команда<br/> способна создать такой шедевр.
                     </p>
                     <p className="text-white text-lg leading-tight mt-[2rem]">
-                        Послушайте, что у получилось.<br />Продолжение этого хита прозвучит на онлайн-трансляции,<br />посвящённой юбилею БФТ.
+                    Послушайте, что у получилось. Продолжение этого хита прозвучит на<br/> онлайн-трансляции, посвящённой юбилею БФТ.	
                     </p>
                 </div>
                 {

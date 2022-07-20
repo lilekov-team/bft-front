@@ -205,8 +205,13 @@ const Home: NextPage = () => {
         </AnimatePresence>
         {
           close &&
-          <div className='fixed bottom-[45px] left-[380px] text-accent cursor-pointer z-[200]' onClick={() => playAudio()}>
-              <FaTimes/>
+          <div className='fixed bottom-[48px] left-[365px] text-accent cursor-pointer z-[200] w-[13px] h-[13px]' onClick={() => playAudio()}>
+              <FaTimes
+              style={{
+                width: 13,
+                height: 13
+              }}
+              />
           </div>
         }
       </div>
