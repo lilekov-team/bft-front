@@ -161,7 +161,7 @@ export const uploadVideo = async (
 
         const response = await axios.post(url, {
 
-            "crew-training": link
+            "crew_training": link
         }, {
             headers: {
                 'X-api-token': jwt,
@@ -256,7 +256,7 @@ export const sendPodcastVote = async (text: string) => {
 
 
     const data = {
-        "out-orbit": text
+        "out_orbit": text
     }
 
     try {
@@ -278,7 +278,7 @@ export const sendPodcastVote = async (text: string) => {
 
 
 export const sendWord = async (text: string) => {
-    const url = API_URL + "/contest/out-orbit"
+    const url = API_URL + "/contest/heard-podcasts"
 
     const jwt = getJwt()
 
