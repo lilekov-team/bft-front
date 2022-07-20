@@ -182,7 +182,7 @@ export const uploadPlot = async (
 ): Promise<void> => {
 
 
-    const url = API_URL + "/contest/engine-starting"
+    const url = API_URL + "/contest/camera-motor"
 
     const jwt = getJwt()
 
