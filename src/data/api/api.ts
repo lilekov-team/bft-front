@@ -17,7 +17,7 @@ import { API_URL } from "../../config";
 export const sendWords = async (text: string) => {
 
 
-    const url = API_URL + "/contest/"
+    const url = API_URL + "/contest/collecting"
 
     const jwt = getJwt()
 
