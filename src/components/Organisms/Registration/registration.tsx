@@ -6,7 +6,7 @@ import CustomModal from "../../Molecules/Modal/modal"
 
 const RegistrationModal = () => {
     const [open, setOpen] = useState(false)
-    const [registered, setRegistered] = useState(false)
+    const [registered, setRegistered] = useState(true)
     const [name, setName] = useState("")
     const [dep, setDep] = useState("")
     const [email, setEmail] = useState("")
@@ -21,7 +21,7 @@ const RegistrationModal = () => {
 
     useEffect(() => {
         if (!registered) {
-            setOpen(true)
+            setOpen(false)
         } else {
             setOpen(false)
         }
