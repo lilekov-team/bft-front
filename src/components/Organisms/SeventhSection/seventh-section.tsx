@@ -96,7 +96,7 @@ const SeventhSection = ({
     
 
     return (
-        <div id="launch" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div id="launch" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] z-10">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Запуск <span className="text-accent">двигателя</span>

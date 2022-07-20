@@ -69,7 +69,7 @@ const Header = ({
 
 
     return (
-        <header className="w-full flex justify-center pl-[5.375rem] pr-[7.5rem] pt-[1.25rem]">
+        <header className="w-full flex justify-center pl-[13rem] pr-[14.5rem] pt-[1.25rem]">
             <div className="w-full  flex justify-between items-center">
                 <Image src="/logo.png" alt="logo" width={150 / 16 * 1.11 * width / 100} height={52 / 16 * 1.11 * width / 100} priority/>
                 <div className='flex items-center'>

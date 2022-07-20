@@ -81,7 +81,7 @@ const EmployeeCarousel = ({
         onMouseLeave={() => {
             ref.current?.slickPlay()
         }}
-        ref={observerRef} className="mt-[3.75rem] h-[27.625rem] overflow-hidden px-[7.5rem] relative pt-[0.5rem]">
+        ref={observerRef} className="mt-[3.75rem] h-[27.625rem] overflow-hidden px-[14.5rem] relative pt-[0.5rem]">
             <Slider  ref={ref} autoplay={autoplay} {...settings}>
                 {
                     employees.map((employee, index) => {
@@ -94,10 +94,10 @@ const EmployeeCarousel = ({
                     })
                 }
             </Slider>
-            <div onClick={prev} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute left-[7.5rem] top-[17.063rem] rounded-full bg-accent flex justify-center items-center">
+            <div onClick={prev} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute left-[14.5rem] top-[18.563rem] rounded-full bg-accent flex justify-center items-center">
                 <FaChevronLeft />
             </div>
-            <div onClick={next} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute right-[5.125rem] top-[17.063rem] rounded-full bg-accent flex justify-center items-center">
+            <div onClick={next} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute right-[11.825rem] top-[18.563rem] rounded-full bg-accent flex justify-center items-center">
                 <FaChevronRight />
             </div>
         </div>

@@ -51,7 +51,7 @@ const NinthSection = () => {
     }
 
     return (
-        <div ref={ref} id="prepare" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0 ">
+        <div ref={ref} id="prepare" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0 ">
             <div className="flex flex-col  mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text-accent ">
                     Подготовка
@@ -110,7 +110,7 @@ const NinthSection = () => {
 
             />
             <img
-                className="absolute right-0 top-0 -z-10 w-[51.688rem] h-[49.813rem]"
+                className="absolute right-16 top-0 -z-10 w-[51.688rem] h-[49.813rem]"
                 src="/view.png"
             />
         </div>

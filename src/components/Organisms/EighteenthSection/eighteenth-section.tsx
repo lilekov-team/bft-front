@@ -54,7 +54,7 @@ const EighteenthSection = () => {
 
 
     return (
-        <div ref={ref} className="w-full px-[7.5rem] flex flex-col mt-[12.5rem]">
+        <div ref={ref} className="w-full px-[14.5rem] flex flex-col mt-[12.5rem]">
             <p className="text-accent text-2xl font-bold mb-[1rem]">
                 А теперь выясним, кто внимательнее всех слушал подкасты.
             </p>

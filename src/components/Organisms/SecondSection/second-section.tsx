@@ -4,20 +4,21 @@ import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { viewSection } from '../../../data/api/api'
 import { useWindowDimensions } from '../../../hooks/dimension'
+import { transformPx } from '../../../utils/utils'
 import Button, { ButtonVariants } from '../../Atoms/Button/button'
 import { Routes } from '../../Molecules/Header/header'
 
 const slides = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 const transforms: { [key: number]: string } = {
-    1: "7.5rem",
-    2: "-7.146rem",
-    3: "-22.584rem",
-    4: "-38.772rem",
-    5: "-54.352rem",
-    6: "-54.352rem",
-    7: "-54.352rem",
-    8: "-54.352rem",
-    9: "-54.352rem",
+    1: "14.5rem",
+    2: "0.354rem",
+    3: "-15.584rem",
+    4: "-31.772rem",
+    5: "-47.352rem",
+    6: "-47.352rem",
+    7: "-47.352rem",
+    8: "-47.352rem",
+    9: "-47.352rem",
 }
 
 
@@ -35,15 +36,15 @@ const transforms2: { [key: number]: string } = {
 
 
 const offsets: { [key: number]: string } = {
-    1: "7.75rem",
-    2: "22.426rem",
-    3: "37.964rem",
-    4: "54.352rem",
-    5: "68.352rem",
-    6: "86.2rem",
-    7: "101.290rem",
-    8: "118.041rem",
-    9: "131.979rem",
+    1: "14.75rem",
+    2: "29.426rem",
+    3: "44.964rem",
+    4: "61.352rem",
+    5: "75.352rem",
+    6: "93.2rem",
+    7: "108.290rem",
+    8: "125.041rem",
+    9: "138.979rem",
 }
 
 
@@ -160,7 +161,7 @@ const SecondSection = ({
             <div className="w-full overflow-hidden">
                 <motion.div
                     initial={{
-                        x: 120 / 16 * 1.11 * width / 100
+                        x: transformPx(232, width)
                     }}
                     animate={{
                         x: transforms[offsetSlide]
@@ -259,7 +260,7 @@ const SecondSection = ({
                     }}
                     className='mt-[2.375rem] h-[1.25rem] flex items-center relative '
                     style={{
-                        width: '131.979rem'
+                        width: '138.979rem'
                     }}
                 >
                     <svg width={2512 / 16 * 1.11 * width / 100} height={3}>

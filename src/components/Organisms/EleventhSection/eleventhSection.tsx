@@ -22,7 +22,7 @@ const EleventhSection = () => {
 
     return (
         <div ref={ref} id="route" className="w-full flex flex-col mt-[12.5rem]  relative z-0">
-            <div className="flex items-center mb-[1.875rem] z-20 px-[7.5rem]">
+            <div className="flex items-center mb-[1.875rem] z-20 px-[14.5rem]">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Строим <span className="text-accent">маршрут</span>
                 </h3>
@@ -32,7 +32,7 @@ const EleventhSection = () => {
                     src="/flying.png"
                 />
             </div>
-            <div className="flex flex-col z-20 px-[7.5rem]">
+            <div className="flex flex-col z-20 px-[14.5rem]">
                 <p className="text-accent text-2xl font-bold mb-[1rem]">
                     Четыре планеты, которые неразрывно связаны друг<br />с другом - это наши Сверхновые ценности.
 
@@ -54,17 +54,17 @@ const EleventhSection = () => {
                     layout
                     layoutDependency={width}
                     whileHover={{
-                        height: transformPx(360, width)
+                        height: transformPx(315, width)
                     }}
                     transition={{
                         easings: 'easeIn'
                     }}
                     style={{
-                        width: transformPx(300, width),
+                        width: transformPx(315, width),
                         height: transformPx(55, width),
                     }}
 
-                    className="bg-blue cursor-pointer absolute top-[51.800rem] left-[15.5rem]  shadow-blue-large  rounded-3xl rounded-tl-none p-[1rem] overflow-hidden">
+                    className="bg-blue cursor-pointer absolute top-[62.600rem] left-[19.3rem]  shadow-blue-large  rounded-3xl rounded-tl-none p-[1rem]  px-[1.5rem] overflow-hidden">
                     <h6 className="text-[#0B033B] font-bold text-2xl leading-none mb-[1.5rem]">
                         Профессионализм
                     </h6>
@@ -85,8 +85,8 @@ const EleventhSection = () => {
                     layout
                     layoutDependency={width}
                     whileHover={{
-                        height: transformPx(250, width),
-                        width: transformPx(320, width),
+                        height: transformPx(220, width),
+                        width: transformPx(300, width),
                     }}
                     style={{
                         width: transformPx(160, width),
@@ -96,7 +96,7 @@ const EleventhSection = () => {
                         easings: 'easeIn'
                     }}
 
-                    className="bg-blue cursor-pointer absolute top-[48.58rem] left-[37.75rem]  shadow-blue-large   rounded-3xl rounded-tl-none p-[1rem] overflow-hidden">
+                    className="bg-blue cursor-pointer absolute top-[58.58rem] left-[46.25rem]  shadow-blue-large   rounded-3xl rounded-tl-none p-[1rem]  px-[1.5rem] overflow-hidden">
                     <h6 className="text-[#0B033B] font-bold text-2xl leading-none mb-[1.5rem]">
                         Команда
                     </h6>
@@ -118,8 +118,8 @@ const EleventhSection = () => {
                     layout
                     layoutDependency={width}
                     whileHover={{
-                        height: transformPx(250, width),
-                        width: transformPx(310, width),
+                        height: transformPx(210, width),
+                        width: transformPx(285, width),
                     }}
                     style={{
                         width: transformPx(180, width),
@@ -129,7 +129,7 @@ const EleventhSection = () => {
                         easings: 'easeIn'
                     }}
 
-                    className="bg-blue cursor-pointer absolute top-[41.1rem] left-[58.813rem]  shadow-blue-large   rounded-3xl rounded-tl-none p-[1rem] overflow-hidden">
+                    className="bg-blue cursor-pointer absolute top-[49.6rem] left-[71.513rem]  shadow-blue-large   rounded-3xl rounded-tl-none p-[1rem]  px-[1.5rem] overflow-hidden">
                     <h6 className="text-[#0B033B] font-bold text-2xl leading-none mb-[1.5rem]">
                         Результат
                     </h6>
@@ -146,23 +146,23 @@ const EleventhSection = () => {
                 <motion.div
                     layout
                     whileHover={{
-                        height: transformPx(200, width),
-                        width: transformPx(325, width),
-                        left: transformPx(1050, width),
+                        height: transformPx(160, width),
+                        width: transformPx(300, width),
+                        left: transformPx(1195, width),
 
                     }}
                     layoutDependency={width}
                     style={{
-                        width: transformPx(160, width),
+                        width: transformPx(165, width),
                         height: transformPx(55, width),
-                        left: transformPx(1215, width),
+                        left: transformPx(1330, width),
 
                     }}
                     transition={{
                         easings: 'easeIn'
                     }}
 
-                    className="bg-blue cursor-pointer absolute top-[28.55rem]   shadow-blue-large   rounded-3xl rounded-tl-none hover:rounded-tl-3xl p-[1rem] overflow-hidden">
+                    className="bg-blue cursor-pointer absolute top-[34.55rem]   shadow-blue-large   rounded-3xl rounded-tl-none hover:rounded-tl-3xl p-[1rem] px-[1.5rem] overflow-hidden">
                     <h6 className="text-[#0B033B] font-bold text-2xl leading-none mb-[1.5rem]">
                         Энергия
                     </h6>

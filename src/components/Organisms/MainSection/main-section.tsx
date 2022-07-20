@@ -8,7 +8,7 @@ const MainSection = () => {
 
 
     return (
-        <div id="bft" className="mt-[12.5rem] w-full px-[7.5rem] flex flex-col relative" >
+        <div id="bft" className="mt-[12.5rem] w-full px-[14.5rem] flex flex-col relative" >
             <div className="flex flex-col  z-10">
                 <h3 className="flex items-start drop-shadow-accent font-bold text-[4rem] leading-[4.875rem] mb-[0.313rem]">
                     БФТ=5<span className="text-[2.5rem] leading-[2.5rem] mt-[0.5rem]">2</span>

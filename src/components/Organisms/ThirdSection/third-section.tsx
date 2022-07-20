@@ -209,7 +209,7 @@ const ThirdSection = ({
 
     return (
         <div ref={ref} id="fuel" className="w-full flex flex-col mt-[12.5rem]">
-            <div className="flex items-center mb-[1.875rem] ml-[7.5rem]">
+            <div className="flex items-center mb-[1.875rem] ml-[14.5rem]">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Топливо <span className="text-accent">опыта</span>
                 </h3>
@@ -219,16 +219,19 @@ const ThirdSection = ({
                     src="/flying.png"
                 />
             </div>
-            <p className="ml-[7.5rem] text-lg mb-[4rem] leading-tight">
+            <p className="ml-[14.5rem] text-lg mb-[4rem] leading-tight">
                 Где взять топливо опыта, которое так необходимо для новых космических свершений?<br />Можно получить его от выдающихся астронавтов. Раз в неделю космонавты БФТ будут<br /> делиться с нами своим опытом.<br />Внимательно слушая подкасты, вы узнаете вдохновляющие истории из жизни БФТ:<br />как мы развивались, через что прошли и к чему стремимся.
             </p>
             <div className="w-full overflow-hidden relative">
                 <motion.div
                     initial={{
-                        x: 120 / 16 * 1.11 * width / 100
+                        x: transformPx(232, width)
                     }}
                     animate={{
-                        x: transformPx(120 - ((Math.min(offsetSlide - 1, 6)) * slideWidth + (Math.min(offsetSlide - 1, 6)) * margin), width)
+                        x: transformPx(232 - ((Math.min(offsetSlide - 1, 5)) * slideWidth + (Math.min(offsetSlide - 1, 5)) * margin), width)
+                    }}
+                    transition={{
+                        easings: 'easeInOut'
                     }}
                     className="flex flex-row w-[157rem]">
                     {
@@ -291,18 +294,21 @@ const ThirdSection = ({
                 <div className="w-full overflow-hidden absolute top-[8rem]">
                     <motion.div
                         initial={{
-                            x: 120 / 16 * 1.11 * width / 100
+                            x: transformPx(232, width)
                         }}
                         animate={{
-                            x: - transformPx(((Math.min(offsetSlide - 1, 6)) * slideWidth + (Math.min(offsetSlide - 1, 6)) * margin), width)
+                            x: - transformPx(((Math.min(offsetSlide - 1, 5)) * slideWidth + (Math.min(offsetSlide - 1, 5)) * margin), width)
+                        }}
+                        transition={{
+                            easings: 'easeInOut'
                         }}
                         className='mt-[1rem] h-[1.5rem] flex items-center relative '
                         style={{
-                            width: transformPx(slideWidth * (podcasts.length - 1) + margin * (podcasts.length + 1), width)
+                            width: transformPx(slideWidth * (podcasts.length ) + margin * (podcasts.length -0.8), width)
                         }}
                         >
-                        <svg width={transformPx(slideWidth * (podcasts.length  - 1) + margin * (podcasts.length  + 1), width)} height={3}>
-                            <line x1="0" y1="1" x2={transformPx(slideWidth * (podcasts.length -1) + margin * (podcasts.length +1), width)} y2="1" stroke="white" fill='white'
+                        <svg id="line" width={transformPx(slideWidth * (podcasts.length  ) + margin * (podcasts.length  -0.8), width)} height={3}>
+                            <line x1="0" y1="1" x2={transformPx(slideWidth * (podcasts.length ) + margin * (podcasts.length -0.8), width)} y2="1" stroke="white" fill='white'
                                 strokeDasharray="7" strokeWidth={2} />
                         </svg>
                         <motion.div
@@ -310,7 +316,10 @@ const ThirdSection = ({
                                 width: "0rem",
                             }}
                             animate={{
-                                width: transformPx(130  +  ((slide - 1) * slideWidth + (slide - 1) * margin), width)
+                                width: transformPx(240  +  ((slide - 1) * slideWidth + (slide - 1) * margin), width)
+                            }}
+                            transition={{
+                                easings: 'easeInOut'
                             }}
                             className=' left-0 absolute bg-pale-blue h-[0.625rem] shadow-blue'>
 
@@ -320,7 +329,7 @@ const ThirdSection = ({
                                 return <div
                                     key={i}
                                     style={{
-                                        left: transformPx(120 + (i) * slideWidth + (i) * margin, width),
+                                        left: transformPx(232 + (i) * slideWidth + (i) * margin, width),
                                         transform: `translateX(-0.25rem)`
                                     }}
                                     className={i + 1 <= slide ? `absolute  w-[1.25rem] rounded-full h-[1.25rem] border-[0.3125rem] border-pale-blue bg-white` : `absolute  w-[1.25rem] rounded-full h-[1.25rem] border-[0.1925rem] border-white bg-[#253572]`}>
@@ -353,7 +362,7 @@ const Icon = ({
 
 
     return (
-        <div className={`relative h-[7rem] flex items-center ${podcast.link ? 'cursor-pointer' : 'cursor-default'}`}
+        <div className={`relative h-[7.5rem] flex items-center ${podcast.link ? 'cursor-pointer' : 'cursor-default'}`}
             onMouseEnter={() => {
                 if (podcast.link) {
                     setShow(true)

@@ -16,7 +16,7 @@ const TwentyfirstSection = () => {
     }, [inView])
 
     return (
-        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0 ">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0 ">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Как это <span className="text-accent">было</span>

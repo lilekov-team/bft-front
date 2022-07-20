@@ -22,7 +22,7 @@ const TwentiethSection = () => {
 
 
     return (
-        <div ref={ref} id="auction" className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} id="auction" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Аукцион <span className="text-accent">невесомость</span>
@@ -48,7 +48,7 @@ const TwentiethSection = () => {
                 Аукцион
 
             </a>
-            <div className="absolute top-[-6rem] right-[5.5rem]">
+            <div className="absolute top-[-6rem] right-[12.5rem]">
                 <Image
                 src="/gavel.png"
                 width={transformPx( 593, width)}

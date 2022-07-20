@@ -27,7 +27,7 @@ const FourteenthSection = () => {
     }, [])
 
     return (
-        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem] relative z-0">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0">
             <div className="flex justify-between mb-[6.25rem]">
                 <div className="flex flex-col">
                     <div className="flex items-center mb-[1.875rem] ">

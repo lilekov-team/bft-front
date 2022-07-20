@@ -18,7 +18,7 @@ const FourthSection = () => {
 
 
     return (
-        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[7.5rem]">
+        <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[14.5rem]">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Проверка <span className="text-accent">связи</span>

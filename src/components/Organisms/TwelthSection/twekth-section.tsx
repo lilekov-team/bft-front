@@ -38,7 +38,7 @@ const TwelthSection = () => {
 
     return (
         <div ref={ref} className="w-full flex flex-col   relative z-0">
-            <div className="flex justify-between pl-[7.5rem] pr-[5.25rem]">
+            <div className="flex justify-between pl-[14.5rem] pr-[12.25rem]">
                 <div className="flex flex-col">
 
                     <div className="flex items-center mb-[1.875rem] ">

@@ -12,7 +12,8 @@ const props = {
     theme: '#0B0027',
     mini: false,
     fixed: true,
-    autoplay: true
+    autoplay: true,
+    
 };
 
 
