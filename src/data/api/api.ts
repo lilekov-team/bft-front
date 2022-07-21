@@ -649,3 +649,39 @@ export const uploadFileToMinio = async (file: File, bucket: buckets): Promise<st
     }
 
 }
+
+
+export interface AnalyticsData {
+    "action_content": string,
+    "cutout": boolean,
+    "time_video"?: number
+}
+
+
+
+export const sendAnalyticsData = async (data: AnalyticsData) => {
+
+
+    const url = API_URL + "/contest/usage"
+
+    const jwt = getJwt()
+
+    if (!jwt) {
+        return
+    }
+
+
+    try {
+        const response = await axios.post(url, data, {
+            headers: {
+                'X-api-token': jwt,
+            }
+        })
+
+
+    } catch (err) {
+        console.log(err)
+    }
+
+
+}

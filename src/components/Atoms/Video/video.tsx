@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { BigPlayButton, Player, PlayerReference } from 'video-react'
-import { viewVideo } from '../../../data/api/api'
+import { sendAnalyticsData, viewVideo } from '../../../data/api/api'
 
 
 
@@ -36,11 +36,26 @@ const Video: React.FC<VideoProps> = ({
 
             viewVideo(src ?? "", timeViewed/(total + 1 ))
         }, 10000)
+
+        const timeViewed = ref.current?.video?.video?.currentTime ?? 0
+        sendAnalyticsData({
+            action_content: src,
+            cutout: true,
+            time_video: timeViewed
+        })
     }
 
     const onPause = () => {
         clearInterval(interval as any)
         interval = undefined
+
+
+        const timeViewed = ref.current?.video?.video?.currentTime ?? 0
+        sendAnalyticsData({
+            action_content: src,
+            cutout: false,
+            time_video: timeViewed
+        })
     }
 
     return (

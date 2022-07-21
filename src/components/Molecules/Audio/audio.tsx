@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useRef, useState } from 'react';
-import { listenAudio } from '../../../data/api/api';
+import { listenAudio, sendAnalyticsData } from '../../../data/api/api';
 import { AudioTrack } from '../../Organisms/SeventhSection/seventh-section';
 const ReactAplayer: any = dynamic(() => import('react-aplayer'), { ssr: false });
 
@@ -13,7 +13,7 @@ const props = {
     mini: false,
     fixed: true,
     autoplay: true,
-    
+
 };
 
 
@@ -57,7 +57,7 @@ let interval: NodeJS.Timer | undefined
 export const Audio = ({
     audio,
     setAudio,
-    play, 
+    play,
     showClose
 }: {
     audio: AudioTrack | undefined,
@@ -85,22 +85,22 @@ export const Audio = ({
 
 
     useEffect(() => {
-        
+
         if (play && AP?.paused) {
-            
+
             AP.play()
-        } else  if (AP && !AP.paused && !play) {
+        } else if (AP && !AP.paused && !play) {
             AP.pause()
         }
     }, [play])
 
     const toggle = async () => {
 
-        if (!audio &&AP) {
+        if (!audio && AP) {
             showClose(false)
             await AP.destroy()
             setAP(null)
-            apRef.current=null
+            apRef.current = null
         } else {
             if (!audio && AP) {
                 await AP.pause()
@@ -118,19 +118,25 @@ export const Audio = ({
     const onPlay = () => {
         if (audio) {
             setAudio(true)
+            const timeViewed = apRef.current?.audio?.currentTime ?? 0
+            sendAnalyticsData({
+                action_content: audio.name,
+                cutout: true,
+                time_video: timeViewed
+            })
         }
         if (interval) {
             clearInterval(interval as any)
         }
         interval = setInterval(() => {
             if (apRef.current) {
-            
+
                 const timeViewed = apRef.current.audio.currentTime
                 const total = apRef.current.audio.duration
 
 
-                listenAudio(audio?.name ?? "", timeViewed/(total + 1 ))
-              
+                listenAudio(audio?.name ?? "", timeViewed / (total + 1))
+
             }
         }, 10000)
     }
@@ -138,7 +144,12 @@ export const Audio = ({
     const onPause = () => {
         if (audio) {
             setAudio(false)
-            
+            const timeViewed = apRef.current?.audio?.currentTime ?? 0
+            sendAnalyticsData({
+                action_content: audio.name,
+                cutout: false,
+                time_video: timeViewed
+            })
         }
         if (interval) {
             clearInterval(interval as any)
@@ -148,7 +159,7 @@ export const Audio = ({
 
     const init = (ap: any) => {
         setAP(ap)
-        
+
         apRef.current = ap
         showClose(true)
     }

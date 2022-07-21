@@ -182,3 +182,10 @@ a {
   left: 50%!important;
   transform: translateX(-50%);
 } */
+
+
+.sup {
+  position: relative;
+  bottom: 0.5ex; 
+  font-size: 80%;
+}

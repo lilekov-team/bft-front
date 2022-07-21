@@ -16,6 +16,10 @@ const RegistrationModal = () => {
 
 
         if (user && jwt) {
+            auth(jwt)
+            .catch((err) => {
+                console.log(err)
+            })
             return
         }
 

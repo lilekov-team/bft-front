@@ -113,7 +113,7 @@ const podcasts: Podcast[] = [
         height: 120,
         icon: "/pod8.png",
         ship: "/rocket8.png",
-        title: "«Землю в иллюминаторе»",
+        title: "«Земля в иллюминаторе»",
         type: "audio",
         width: 120,
     },

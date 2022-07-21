@@ -1,13 +1,13 @@
 import Image from "next/image"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import { viewSection } from "../../../data/api/api"
+import { sendAnalyticsData, viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
 
 const FifteenthSection = () => {
     const { width } = useWindowDimensions()
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true
     })
 
@@ -44,12 +44,12 @@ const FifteenthSection = () => {
                         <p>
                             Собирайте команду и читайте инструкцию.
                         </p>
-                        <a target={"_blank"} rel="noopener noreferrer"  className="cursor-pointer ml-[2.5rem]">
-                            <img src="/i-blue.png" alt="info" 
-                            style={{
-                                width: '2rem',
-                                height: '2rem',
-                            }}
+                        <a target={"_blank"} rel="noopener noreferrer" className="cursor-pointer ml-[2.5rem]">
+                            <img src="/i-blue.png" alt="info"
+                                style={{
+                                    width: '2rem',
+                                    height: '2rem',
+                                }}
                             />
                         </a>
                     </div>
@@ -57,10 +57,16 @@ const FifteenthSection = () => {
                         А теперь пора присоединяться к игре.<br />Сделать это можно, нажав кнопку или через qr-код.
                     </p>
                 </div>
-                <img src="/qr.png" alt="qr" className="w-[16.563rem] h-[16.563rem]"/>
+                <img src="/qr.png" alt="qr" className="w-[16.563rem] h-[16.563rem]" />
             </div>
-            <a className={`self-center duration-200 shadow-button w-[17.5rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem]  bg-accent   text-white hover:bg-accent-dark hover:text-white cursor-pointer`}>
-                <img className="absolute left-[1.875rem]" src="/ufo.png" alt="play"/>
+            <a onClick={() => {
+               
+                sendAnalyticsData({
+                    action_content: "Однажды в космосе",
+                    cutout: true,
+                })
+            }} className={`self-center duration-200 shadow-button w-[17.5rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem]  bg-accent   text-white hover:bg-accent-dark hover:text-white cursor-pointer`}>
+                <img className="absolute left-[1.875rem]" src="/ufo.png" alt="play" />
                 Играть
             </a>
         </div>

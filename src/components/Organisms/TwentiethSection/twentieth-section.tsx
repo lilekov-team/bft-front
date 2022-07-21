@@ -1,15 +1,15 @@
 import Image from "next/image"
 import { useEffect } from "react"
 import { useInView } from "react-intersection-observer"
-import { viewSection } from "../../../data/api/api"
+import { sendAnalyticsData, viewSection } from "../../../data/api/api"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
 import Button from "../../Atoms/Button/button"
 
 const TwentiethSection = () => {
 
-    const {width} = useWindowDimensions()
-    const {ref, inView} = useInView({
+    const { width } = useWindowDimensions()
+    const { ref, inView } = useInView({
         triggerOnce: true
     })
 
@@ -43,16 +43,21 @@ const TwentiethSection = () => {
                 Однако прежде, чем всё начнётся, хотим рассказать об одном<br /> новшестве. Благодаря ему невероятный накал страстей<br /> Аукциона испытают не только  участники, но и зрители. Ведь<br /> сейчас они могут отгадывать лоты.<br />Кто первым отгадает 3 лота, получит приз.
 
             </p>
-            <a target={"_blank"} className={`w-[13.75rem] duration-200 shadow-button px-[2.625rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem] border-[1px] bg-accent  hover:bg-accent-dark text-white border-transparent cursor-pointer`}>
+            <a onClick={() => {
+                sendAnalyticsData({
+                    action_content: "Аукцион",
+                    cutout: true,
+                })
+            }} target={"_blank"} className={`w-[13.75rem] duration-200 shadow-button px-[2.625rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem] border-[1px] bg-accent  hover:bg-accent-dark text-white border-transparent cursor-pointer`}>
 
                 Аукцион
 
             </a>
             <div className="absolute top-[-6rem] right-[12.5rem]">
                 <Image
-                src="/gavel.png"
-                width={transformPx( 593, width)}
-                height={transformPx( 526, width)}
+                    src="/gavel.png"
+                    width={transformPx(593, width)}
+                    height={transformPx(526, width)}
                 />
             </div>
         </div>
