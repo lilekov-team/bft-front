@@ -47,7 +47,7 @@ module.exports = {
       'xl': '1440px'
     },
     backgroundSize: {
-      "main-fill": "101% 101%"
+      "main-fill": "101% "
     },
     dropShadow: {
       "accent": "0px 0px 15px #00E0FF" 

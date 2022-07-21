@@ -3,6 +3,7 @@ import moment from 'moment'
 import { useEffect, useState } from 'react'
 import { useInView } from 'react-intersection-observer'
 import { viewSection } from '../../../data/api/api'
+import { hiddenRoutes } from '../../../data/hidden-content'
 import { useWindowDimensions } from '../../../hooks/dimension'
 import { transformPx } from '../../../utils/utils'
 import Button, { ButtonVariants } from '../../Atoms/Button/button'
@@ -62,7 +63,7 @@ const data: {
         `
     },
     2: {
-        route: Routes.Fuel,
+        route: Routes.Connection,
         text: `Проверка связи. Приём! Как слышно? Не хотелось бы остаться без связи посреди бескрайнего<br/> космоса, правда же? К счастью, нам это не грозит. Подготовит нас к полёту опытный астронавт в<br/> Команде БФТ. Перед экспедицией она проведёт подробный инструктаж, где расскажет, как собрать<br/> вещи, подготовить корабль,  собрать экипаж и, конечно, достичь желаемого результата. А ещё не<br/> забываем ловить космические радиочастоты, чтобы послушать аудиоподкаст “Солнечные батареи”<br/> и пополнить топливные баки опыта!
         `
     },
@@ -109,9 +110,11 @@ const data: {
 const dates = ["30.07.2022", "06.08.2022", "13.08.2022", "20.08.2022", "27.08.2022", "03.09.2022", "10.09.2022", "15.09.2022", "15.09.2023"]
 
 const SecondSection = ({
-    handleNavigation
+    handleNavigation,
+    hidden
 }: {
-    handleNavigation: (route: Routes) => void
+    handleNavigation: (route: Routes) => void,
+    hidden: Routes[]
 }) => {
     const { width } = useWindowDimensions()
     const [slide, setSlide] = useState(1)
@@ -378,12 +381,16 @@ const SecondSection = ({
                         className="mb-[2.5rem] text-lg"
                     >
                     </p>
-                    <Button
-                        variant={ButtonVariants.FILLED}
-                        onClick={navigate}
-                    >
-                        Перейти
-                    </Button>
+                    {
+                        !hidden.includes(data[slide].route) &&
+                        <Button
+                            variant={ButtonVariants.FILLED}
+                            onClick={navigate}
+                        >
+                            Перейти
+                        </Button>
+
+                    }
                 </div>
             </div>
         </div>

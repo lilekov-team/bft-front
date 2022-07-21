@@ -29,9 +29,30 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Script from 'next/script'
 import { YMInitializer } from 'react-yandex-metrika';
 import { FaTimes } from 'react-icons/fa'
+import { hiddenRoutes } from '../src/data/hidden-content'
 
 
-
+const hiddenSections = [
+  Routes.Connection,
+  Routes.Collect,
+  Routes.CollectResults,
+  Routes.Launch,
+  Routes.LaunchResults,
+  Routes.Prepare,
+  Routes.PrepareResults,
+  Routes.Route,
+  Routes.Stars,
+  Routes.Camera,
+  Routes.CameraResults,
+  Routes.Works,
+  Routes.WorksResults,
+  Routes.Exit,
+  Routes.Listen,
+  Routes.Exit,
+  Routes.Key,
+  Routes.Auction,
+  Routes.Final
+]
 
 const Home: NextPage = () => {
   const [showAudio, setShowAudio] = useState(false)
@@ -41,6 +62,16 @@ const Home: NextPage = () => {
   const [controls, setControls] = useState(false)
   const controlsRef = useRef(false)
   const [close, setClose] = useState(false)
+  const [hidden, setHidden] = useState(hiddenSections)
+
+
+  const toggleHidden = () => {
+    if (hidden.length > 0 ) {
+      setHidden([])
+    } else {
+      setHidden(hiddenSections)
+    }
+  }
 
   const toggleAudio = (play: boolean) => {
     setAudioPlaying(play)
@@ -113,15 +144,22 @@ const Home: NextPage = () => {
   return (
     <>
       <YMInitializer accounts={[89595157]} />
-      <div className='w-full min-h-[200rem] bg-center bg-main bg-main-fill bg-no-repeat pb-[6.25rem] relative'>
+      <div
+        style={{
+          backgroundPosition: 'center top'
+        }}
+        className='w-full min-h-[200rem]  bg-main bg-main-fill bg-no-repeat pb-[6.25rem] relative'>
         <Header
           handleNavigation={handleNavigation}
+          hidden={hidden}
+          toggle={toggleHidden}
         />
         <RegistrationModal />
         <div className='w-full min-h-screen flex flex-col text-white'>
           <MainSection />
           <SecondSection
             handleNavigation={handleNavigation}
+            hidden={hidden}
           />
           <ThirdSection
             playAudio={playAudio}
@@ -131,34 +169,103 @@ const Home: NextPage = () => {
             togglePlay={toggleAudio}
 
           />
-          <FourthSection />
-          <FifthSection />
-          <SixthSection />
-          <SeventhSection
-            playAudio={playAudio}
-            audio={audio}
-            play={audioPlaying}
-            togglePlay={toggleAudio}
-          />
-          <EighthSection
-            playAudio={playAudio}
-            audio={audio}
-            play={audioPlaying}
-            togglePlay={toggleAudio}
-          />
-          <NinthSection />
-          <TenthSection />
-          <EleventhSection />
-          <TwelthSection />
-          <ThirteenthSection />
-          <FourteenthSection />
-          <FifteenthSection />
-          <SixteenthSection />
-          <SeventeenthSection />
-          <EighteenthSection />
-          <NineteenthSection />
-          <TwentiethSection />
-          <TwentyfirstSection />
+          {
+            !hidden.includes(Routes.Connection) &&
+            <FourthSection />
+          }
+          {
+            !hidden.includes(Routes.Collect) &&
+            <FifthSection />
+
+          }
+          {
+            !hidden.includes(Routes.CollectResults) &&
+
+            <SixthSection />
+          }
+          {
+            !hidden.includes(Routes.Launch) &&
+            <SeventhSection
+              playAudio={playAudio}
+              audio={audio}
+              play={audioPlaying}
+              togglePlay={toggleAudio}
+            />
+          }
+          {
+            !hidden.includes(Routes.LaunchResults) &&
+            <EighthSection
+              playAudio={playAudio}
+              audio={audio}
+              play={audioPlaying}
+              togglePlay={toggleAudio}
+            />
+          }          {
+            !hidden.includes(Routes.Prepare) &&
+
+            <NinthSection />
+          }
+
+          {
+            !hidden.includes(Routes.PrepareResults) &&
+
+            <TenthSection />
+          }
+          {
+            !hidden.includes(Routes.Route) &&
+
+            <EleventhSection />
+          }
+          {
+            !hidden.includes(Routes.Stars) &&
+
+            <TwelthSection />
+          }
+          {
+            !hidden.includes(Routes.Camera) &&
+
+            <ThirteenthSection />
+          }
+          {
+            !hidden.includes(Routes.CameraResults) &&
+
+            <FourteenthSection />
+          }
+          {
+            !hidden.includes(Routes.Works) &&
+
+            <FifteenthSection />
+          }
+          {
+            !hidden.includes(Routes.WorksResults) &&
+
+            <SixteenthSection />
+          }
+          {
+            !hidden.includes(Routes.Exit) &&
+            <SeventeenthSection />
+
+          }
+          {
+            !hidden.includes(Routes.Listen) &&
+
+            <EighteenthSection />
+          }
+          {
+            !hidden.includes(Routes.Key) &&
+
+            <NineteenthSection />
+          }
+          {
+            !hidden.includes(Routes.Auction) &&
+
+            <TwentiethSection />
+          }
+          {
+            !hidden.includes(Routes.Final) &&
+
+            <TwentyfirstSection />
+          }
         </div>
 
         {
@@ -206,12 +313,12 @@ const Home: NextPage = () => {
         {
           close &&
           <div className='fixed bottom-[48px] left-[365px] text-accent cursor-pointer z-[200] w-[13px] h-[13px]' onClick={() => playAudio()}>
-              <FaTimes
+            <FaTimes
               style={{
                 width: 13,
                 height: 13
               }}
-              />
+            />
           </div>
         }
       </div>

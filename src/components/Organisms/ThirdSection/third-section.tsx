@@ -89,22 +89,22 @@ const podcasts: Podcast[] = [
         day: "ПН",
         episode: "6 серия",
         height: 120,
-        icon: "",
+        icon: "/pod7.png",
         ship: "/rocket6.png",
         title: "«Ценности окрыляют»",
         type: "audio",
-        width: 120,
+        width: 160,
     },
     {
         date: "5 сентября",
         day: "ПН",
         episode: "7 серия",
         height: 120,
-        icon: "/pod7.png",
+        icon: "/pod9.png",
         ship: "/rocket7.png",
         title: "«Посыл во вселенную»",
         type: "audio",
-        width: 160,
+        width: 120,
     },
     {
         date: "12 сентября",
@@ -117,29 +117,29 @@ const podcasts: Podcast[] = [
         type: "audio",
         width: 120,
     },
-    {
-        date: "5 сентября",
-        day: "ПН",
-        episode: "9 серия",
-        height: 120,
-        icon: "/pod9.png",
-        ship: "/rocket9.png",
-        title: "«Посыл во вселенную»",
-        type: "audio",
-        width: 120,
-    },
-    {
-        date: "12 сентября",
-        day: "ПН",
-        episode: "10 серия",
-        height: 120,
-        icon: "/pod10.png",
-        ship: "/rocket10.png",
+    // {
+    //     date: "5 сентября",
+    //     day: "ПН",
+    //     episode: "9 серия",
+    //     height: 120,
+    //     icon: "/pod9.png",
+    //     ship: "/rocket9.png",
+    //     title: "«Посыл во вселенную»",
+    //     type: "audio",
+    //     width: 120,
+    // },
+    // {
+    //     date: "12 сентября",
+    //     day: "ПН",
+    //     episode: "10 серия",
+    //     height: 120,
+    //     icon: "/pod10.png",
+    //     ship: "/rocket10.png",
 
-        title: "«Прощай, Земля!»",
-        type: "audio",
-        width: 116,
-    },
+    //     title: "«Прощай, Земля!»",
+    //     type: "audio",
+    //     width: 116,
+    // },
 ]
 
 
@@ -228,7 +228,7 @@ const ThirdSection = ({
                         x: transformPx(232, width)
                     }}
                     animate={{
-                        x: transformPx(232 - ((Math.min(offsetSlide - 1, 5)) * slideWidth + (Math.min(offsetSlide - 1, 5)) * margin), width)
+                        x: transformPx(232 - ((Math.min(offsetSlide - 1, 4)) * slideWidth + (Math.min(offsetSlide - 1, 4)) * margin), width)
                     }}
                     transition={{
                         easings: 'easeInOut'
@@ -297,7 +297,7 @@ const ThirdSection = ({
                             x: transformPx(232, width)
                         }}
                         animate={{
-                            x: - transformPx(((Math.min(offsetSlide - 1, 5)) * slideWidth + (Math.min(offsetSlide - 1, 5)) * margin), width)
+                            x: - transformPx(((Math.min(offsetSlide - 1, 4)) * slideWidth + (Math.min(offsetSlide - 1, 4)) * margin), width)
                         }}
                         transition={{
                             easings: 'easeInOut'

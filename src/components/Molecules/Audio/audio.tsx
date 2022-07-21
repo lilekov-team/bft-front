@@ -87,8 +87,9 @@ export const Audio = ({
     useEffect(() => {
         
         if (play && AP?.paused) {
+            
             AP.play()
-        } else  if (AP) {
+        } else  if (AP && !AP.paused && !play) {
             AP.pause()
         }
     }, [play])
