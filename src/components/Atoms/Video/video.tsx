@@ -41,7 +41,7 @@ const Video: React.FC<VideoProps> = ({
         sendAnalyticsData({
             action_content: src,
             cutout: true,
-            time_video: timeViewed
+            time_video: Math.round(timeViewed)
         })
     }
 
@@ -54,7 +54,7 @@ const Video: React.FC<VideoProps> = ({
         sendAnalyticsData({
             action_content: src,
             cutout: false,
-            time_video: timeViewed
+            time_video: Math.round(timeViewed)
         })
     }
 

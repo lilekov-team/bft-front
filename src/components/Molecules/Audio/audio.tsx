@@ -122,7 +122,7 @@ export const Audio = ({
             sendAnalyticsData({
                 action_content: audio.name,
                 cutout: true,
-                time_video: timeViewed
+                time_video: Math.round(timeViewed)
             })
         }
         if (interval) {
@@ -148,7 +148,7 @@ export const Audio = ({
             sendAnalyticsData({
                 action_content: audio.name,
                 cutout: false,
-                time_video: timeViewed
+                time_video: Math.round(timeViewed)
             })
         }
         if (interval) {
