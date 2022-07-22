@@ -42,7 +42,7 @@ const offsets: { [key: number]: string } = {
     3: "44.964rem",
     4: "61.352rem",
     5: "75.352rem",
-    6: "93.2rem",
+    6: "90.4rem",
     7: "108.290rem",
     8: "125.041rem",
     9: "138.979rem",
@@ -78,12 +78,12 @@ const data: {
         `
     },
     5: {
-        route: Routes.Route,
+        route: Routes.Prepare,
         text: `Подготовка экипажа. Готова ли космическая Команда БФТ на подвиги? Ответ однозначен. Всегда<br/> готова и совершает их каждый день. Ведь каждый из нас - настоящий ГЕРОЙ! Как на работе, так и<br/> дома, со своими детьми. На этой неделе у нас будет новое задание - посмотреть на себя глазами<br/> наших БФТусиков. Они ответят на несколько вопросов о работе своих родителей. А их ответы мы<br/> запишем на видео и смонтируем душевный ролик. Заряжаемся позитивной энергией и продолжаем<br/> пополнять топливные баки опыта очередным аудиоподкастом “Источник энергии”!
         `
     },
     6: {
-        route: Routes.Prepare,
+        route: Routes.Route,
         text: `Строим маршрут. Наше межгалактическое путешествие будет намного остросюжетней, чем это показано в<br/> известных блокбастерах. Мы сделаем своё кино об экспедиции! В этом нам помогут наши 4 Сверхновые<br/> ценности БФТ. Уверены: получится лучше, чем в Голливуде! Кстати, у нас будет и своя Аллея Звёзд,<br/> которая откроется 29 августа.  На ней мы увидим имена всех наших коллег, получивших в этом году<br/> почётные звания БФТ! Равняемся на них и пишем сценарии для нашей киноленты! А в творческом порыве<br/> не забываем про новый аудиоподкаст “Ценности окрыляют” и про возможность стать участником<br/> <a style="text-decoration: underline;" href="mailto:d.chavshino@bftcom.com">следующего подкаста</a>! 
         `
     },
@@ -208,7 +208,7 @@ const SecondSection = ({
                     </div>
                     <div className={`flex flex-col cursor-pointer h-[18.5rem] justify-between mr-[4.375rem]`} onClick={() => handleChangeSlide(5)}>
                         <div className="relative h-[12.125rem] flex items-center">
-                            <img src={`/slide5.png`} alt="slide" className="bg-blend-screen w-[13.563rem] h-[10.938rem]" />
+                            <img src={`/slide6.png`} alt="slide" className="bg-blend-screen w-[6.25rem] h-[11.25rem]" />
                             <img className="bg-blend-screen absolute left-[-1.5rem] top-[2rem]   min-w-[13.125rem] h-[9.563rem]" src={"/slidebg.png"} alt="slidebg" />
                         </div>
                         <div className="text-accent font-bold text-[1.5rem] leading-[1.825rem]">
@@ -217,7 +217,7 @@ const SecondSection = ({
                     </div>
                     <div className={`flex flex-col cursor-pointer h-[18.5rem] justify-between mr-[4.375rem]`} onClick={() => handleChangeSlide(6)}>
                         <div className="relative h-[12.125rem] flex items-center">
-                            <img src={`/slide6.png`} alt="slide" className="bg-blend-screen w-[6.25rem] h-[11.25rem]" />
+                            <img src={`/slide5.png`} alt="slide" className="bg-blend-screen w-[13.563rem] h-[10.938rem]" />
                             <img className="bg-blend-screen absolute left-[-1.5rem] top-[2rem]   min-w-[13.125rem] h-[9.563rem]" src={"/slidebg.png"} alt="slidebg" />
                         </div>
                         <div className="text-accent font-bold text-[1.5rem] leading-[1.825rem]">
@@ -338,15 +338,15 @@ const SecondSection = ({
                             left: offsets[5]
                         }}
                         className={`flex items-start font-bold text-base text-white absolute `}>
-                        СТРОИМ МАРШРУТ
+                            ПОДГОТОВКА<br />
+                            ЭКИПАЖА
                     </div>
                     <div
                         style={{
                             left: offsets[6]
                         }}
                         className={`flex items-start font-bold text-base text-white absolute `}>
-                        ПОДГОТОВКА<br />
-                        ЭКИПАЖА
+                            СТРОИМ МАРШРУТ
                     </div>
                     <div
                         style={{
