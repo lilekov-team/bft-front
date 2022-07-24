@@ -37,7 +37,7 @@ const MainSection = () => {
                     </div>
                 </div>
                 <Video
-                    src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/bft25_pr03a_index2.mp4"
+                    src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/intro.mp4"
                     color="blue"
                     poster="/first-bg.png"
                 />
