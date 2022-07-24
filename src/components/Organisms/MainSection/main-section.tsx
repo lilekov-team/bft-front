@@ -39,6 +39,7 @@ const MainSection = () => {
                 <Video
                     src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/bft25_pr03a_index2.mp4"
                     color="blue"
+                    poster="/first-bg.png"
                 />
             </div>
             <div className="absolute top-[4rem] right-[3.5rem] z-0">

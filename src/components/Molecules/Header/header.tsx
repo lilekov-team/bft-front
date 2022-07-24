@@ -124,15 +124,6 @@ const Header = ({
                         }
                         <span className={`${hidden.includes(Routes.Launch) ? 'text-[#ffffff44]' : 'text-white'}`}>Запуск<br />двигателя</span>
                     </div>
-                    <div className={`relative border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] ${hidden.includes(Routes.Route) ? 'cursor-default' : 'cursor-pointer'}`} onClick={() => handleNavigation(Routes.Route)}>
-                        {
-                            hidden.includes(Routes.Route) &&
-                            <div className='l-[0.75rem] z-20 absolute top-1/2 translate-y-[-50%]'>
-                                <img src="/lock.png" alt='lock' />
-                            </div>
-                        }
-                        <span className={`${hidden.includes(Routes.Route) ? 'text-[#ffffff44]' : 'text-white'}`}>Строим<br />маршрут</span>
-                    </div>
                     <div className={`relative border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] ${hidden.includes(Routes.Prepare) ? 'cursor-default' : 'cursor-pointer'}`} onClick={() => handleNavigation(Routes.Prepare)}>
                         {
                             hidden.includes(Routes.Prepare) &&
@@ -141,6 +132,15 @@ const Header = ({
                             </div>
                         }
                         <span className={`${hidden.includes(Routes.Prepare) ? 'text-[#ffffff44]' : 'text-white'}`}>Подготовка<br />экипажа</span>
+                    </div>
+                    <div className={`relative border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] ${hidden.includes(Routes.Route) ? 'cursor-default' : 'cursor-pointer'}`} onClick={() => handleNavigation(Routes.Route)}>
+                        {
+                            hidden.includes(Routes.Route) &&
+                            <div className='l-[0.75rem] z-20 absolute top-1/2 translate-y-[-50%]'>
+                                <img src="/lock.png" alt='lock' />
+                            </div>
+                        }
+                        <span className={`${hidden.includes(Routes.Route) ? 'text-[#ffffff44]' : 'text-white'}`}>Строим<br />маршрут</span>
                     </div>
                     <div className={`relative border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] ${hidden.includes(Routes.Works) ? 'cursor-default' : 'cursor-pointer'}`} onClick={() => handleNavigation(Routes.Works)}>
                         {
