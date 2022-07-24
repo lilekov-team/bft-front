@@ -50,6 +50,12 @@ export const audios: {
         cover: "/earth.png",
         name: "Трава у дома"
     },
+    "https://disk.yandex.ru/d/Au8pmaCVkS0Vjg/1%D0%BD.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Первый космодром",
+        url: "https://disk.yandex.ru/d/Au8pmaCVkS0Vjg/1%D0%BD.wav"
+    }
 }
 
 let interval: NodeJS.Timer | undefined
