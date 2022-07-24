@@ -20,36 +20,7 @@ const props = {
 export const audios: {
     [key: string]: AudioTrack
 } = {
-    "https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav": {
-        name: 'BFT',
-        artist: 'BFT',
-        url: 'https://www2.cs.uic.edu/~i101/SoundFiles/StarWars60.wav',
-        cover: '/logo-square.png',
-    },
-    "/David_Bowie_-_Ground_Control_to_Major_Tom_64090800.mp3": {
-        url: "/David_Bowie_-_Ground_Control_to_Major_Tom_64090800.mp3",
-        artist: "David Bowie",
-        cover: "/bowie.png",
-        name: "Ground Control"
-    },
-    "/The_Beatles_-_Across_The_Universe_47963680.mp3": {
-        url: "/The_Beatles_-_Across_The_Universe_47963680.mp3",
-        artist: "John Lennon",
-        cover: "/lennon.png",
-        name: "Accross the universe"
-    },
-    "/Noise_MC_-_Na_Marse_Klassno_63371930.mp3": {
-        url: "/Noise_MC_-_Na_Marse_Klassno_63371930.mp3",
-        artist: "Noize MC",
-        cover: "/noize.png",
-        name: "На марсе классно"
-    },
-    "/Zemlyane_-_Trava_u_doma_55297782.mp3": {
-        url: "/Zemlyane_-_Trava_u_doma_55297782.mp3",
-        artist: "Земляне",
-        cover: "/earth.png",
-        name: "Трава у дома"
-    },
+
     "https://disk.yandex.ru/d/Au8pmaCVkS0Vjg/1%D0%BD.wav": {
         artist: "BFT",
         cover: "/logo-square.png",
