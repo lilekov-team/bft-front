@@ -25,7 +25,7 @@ export const audios: {
         artist: "BFT",
         cover: "/logo-square.png",
         name: "Первый космодром",
-        url: "https://disk.yandex.ru/d/Au8pmaCVkS0Vjg/1%D0%BD.wav"
+        url: "https://25.bftcom.com/1h.wav"
     }
 }
 
