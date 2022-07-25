@@ -1,6 +1,7 @@
 import { Routes } from "../components/Molecules/Header/header";
 
 export const hiddenRoutes = [
+    Routes.Fuel,
     Routes.Connection,
     Routes.Collect,
     Routes.CollectResults,

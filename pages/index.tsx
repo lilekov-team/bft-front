@@ -161,14 +161,17 @@ const Home: NextPage = () => {
             handleNavigation={handleNavigation}
             hidden={hidden}
           />
-          <ThirdSection
-            playAudio={playAudio}
-            playVideo={playVideo}
-            audio={audio}
-            play={audioPlaying}
-            togglePlay={toggleAudio}
+          {
+            !hidden.includes(Routes.Fuel) &&
+            <ThirdSection
+              playAudio={playAudio}
+              playVideo={playVideo}
+              audio={audio}
+              play={audioPlaying}
+              togglePlay={toggleAudio}
 
-          />
+            />
+          }
           {
             !hidden.includes(Routes.Connection) &&
             <FourthSection />

@@ -101,8 +101,14 @@ const Header = ({
                         <span >БФТ=5</span><span className='text-[0.625rem] pt-[1px] leading-none'>2</span>
                     </div>
 
-                    <div className='border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] cursor-pointer' onClick={() => handleNavigation(Routes.Fuel)}>
-                        <span >Топливо<br />опыта</span>
+                    <div className={`relative border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] ${hidden.includes(Routes.Fuel) ? 'cursor-default' : 'cursor-pointer'}`} onClick={() => handleNavigation(Routes.Fuel)}>
+                        {
+                            hidden.includes(Routes.Fuel) &&
+                            <div className='l-[0.75rem] z-20 absolute top-1/2 translate-y-[-50%]'>
+                                <img src="/lock.png" alt='lock' />
+                            </div>
+                        }
+                        <span className={`${hidden.includes(Routes.Fuel) ? 'text-[#ffffff44]' : 'text-white'}`}>Топливо<br />опыта</span>
                     </div>
 
                     <div className={`relative border-l-2 border-l-accent pl-[0.75rem] mr-[1.875rem] flex items-start text-white text-sm leading-[1.0675rem] ${hidden.includes(Routes.Collect) ? 'cursor-default' : 'cursor-pointer'}`} onClick={() => handleNavigation(Routes.Collect)}>
