@@ -66,11 +66,11 @@ const Home: NextPage = () => {
 
 
   const toggleHidden = () => {
-    if (hidden.length > 0 ) {
-      setHidden([])
-    } else {
-      setHidden(hiddenSections)
-    }
+    // if (hidden.length > 0 ) {
+    //   setHidden([])
+    // } else {
+    //   setHidden(hiddenSections)
+    // }
   }
 
   const toggleAudio = (play: boolean) => {
