@@ -361,7 +361,7 @@ const SecondSection = ({
                             left: offsets[8]
                         }}
                         className={`flex flex-col w-[12.688rem] items-start font-bold text-base text-white absolute `}>
-                        ВЫХОД ЗА ПРЕДЕЛЫ<br /> ОРБИТЫ<br />  <p className='font-normal'>(онлайн вечеринка)</p>
+                        ВЫХОД ЗА ПРЕДЕЛЫ<br /> ОРБИТЫ<br />  <p className='font-normal'>(прямой эфир)</p>
 
                     </div>
                     <div
