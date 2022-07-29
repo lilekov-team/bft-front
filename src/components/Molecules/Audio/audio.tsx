@@ -21,7 +21,7 @@ export const audios: {
     [key: string]: AudioTrack
 } = {
 
-    "https://disk.yandex.ru/d/Au8pmaCVkS0Vjg/1%D0%BD.wav": {
+    "https://25.bftcom.com/1h.wav": {
         artist: "BFT",
         cover: "/logo-square.png",
         name: "Первый космодром",

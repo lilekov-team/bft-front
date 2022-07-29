@@ -32,7 +32,7 @@ const podcasts: Podcast[] = [
         day: "ПТ",
         episode: "1 серия",
         height: 120,
-        link: "https://disk.yandex.ru/d/Au8pmaCVkS0Vjg/1%D0%BD.wav",
+        link: "https://25.bftcom.com/1h.wav",
         icon: "/pod1.png",
         ship: "/rocket1.png",
         title: "«Первый космодром»",
