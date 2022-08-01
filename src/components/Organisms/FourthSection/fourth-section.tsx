@@ -32,7 +32,7 @@ const FourthSection = () => {
             <Video
             src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/proverka%20svyazy.mp4"
             color="pink"
-            poster="/placeholder2.png"
+            poster="/bg-4.png"
             />
 
         </div>
