@@ -34,7 +34,7 @@ import { hiddenRoutes } from '../src/data/hidden-content'
 
 const hiddenSections = [
   // Routes.Fuel,
-  Routes.Connection,
+  // Routes.Connection,
   Routes.Collect,
   Routes.CollectResults,
   Routes.Launch,

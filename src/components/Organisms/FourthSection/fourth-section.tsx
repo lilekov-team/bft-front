@@ -30,7 +30,7 @@ const FourthSection = () => {
             </p>
 
             <Video
-            src="https://static.videezy.com/system/resources/previews/000/013/658/original/Wind_Turbine_03.mp4"
+            src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/proverka%20svyazy.mp4"
             color="pink"
             poster="/placeholder2.png"
             />
