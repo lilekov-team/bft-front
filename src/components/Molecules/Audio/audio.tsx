@@ -26,7 +26,14 @@ export const audios: {
         cover: "/logo-square.png",
         name: "Первый космодром",
         url: "https://25.bftcom.com/1h.wav"
-    }
+    },
+
+    "https://25.bftcom.com/2h.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Солнечные батареи",
+        url: "https://25.bftcom.com/2h.wav"
+    },
 }
 
 let interval: NodeJS.Timer | undefined

@@ -44,10 +44,11 @@ const podcasts: Podcast[] = [
         day: "ПТ",
         episode: "2 серия",
         height: 120,
+        link: 'https://25.bftcom.com/2h.wav',
         icon: "/pod2.png",
         ship: "/rocket2.png",
         title: "«Солнечные батареи»",
-        type: "video",
+        type: "audio",
         width: 119,
     },
     {
