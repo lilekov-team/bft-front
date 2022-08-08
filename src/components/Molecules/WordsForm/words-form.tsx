@@ -4,7 +4,7 @@ import { useCustomToast } from "../../../hooks/toast"
 import Button, { ButtonVariants } from "../../Atoms/Button/button"
 
 const prefixes = [
-    "а", "о", "з", "за", "на", "над", "надо","о", "от", "ото", "до", "по", "под", "подо", "про", "обо", "об", "во", "со", "вокруг", "около", "из", "близ", "через", "чрез", "без", "из-за", "из-под", "сквозь", "с", "в","во", "у", "перед", "пред", "вдоль", "вблизи", "кругом"
+    "а", "о", "з", "за", "на", "над", "надо", "о", "от", "ото", "до", "по", "под", "подо", "про", "обо", "об", "во", "со", "вокруг", "около", "из", "близ", "через", "чрез", "без", "из-за", "из-под", "сквозь", "с", "в", "во", "у", "перед", "пред", "вдоль", "вблизи", "кругом"
 ]
 
 
@@ -14,15 +14,16 @@ const WordsForm = () => {
     const [count, setCount] = useState(0)
     const toast = useCustomToast()
     const [loading, setLoading] = useState(false)
-    const [user, setUser] = useState<any>()
+    
+    // const [user, setUser] = useState<any>()
 
 
-    useEffect(() => {
-        setUser(getUser())
-    }, [])
+    // useEffect(() => {
+    //     setUser(getUser())
+    // }, [])
 
 
-   
+
 
     const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
 
@@ -36,20 +37,21 @@ const WordsForm = () => {
     }
 
     const send = () => {
-        if (text && count === 25) {
+        // if (text && count === 25) {
+        if (text ) {
             setLoading(true)
             sendWords(text)
-            .then(() => {
-                toast("", "success", "Успешно отправлено")
-                setText("")
-                setCount(0)
-            })
-            .catch((err) => {
-                toast("", "error", err.message)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
+                .then(() => {
+                    toast("", "success", "Успешно отправлено")
+                    setText("")
+                    setCount(0)
+                })
+                .catch((err) => {
+                    toast("", "error", err.message)
+                })
+                .finally(() => {
+                    setLoading(false)
+                })
         }
     }
 
@@ -69,7 +71,8 @@ const WordsForm = () => {
                     onClick={send}
                     variant={ButtonVariants.FILLED}
                     loading={loading}
-                    disabled={count < 25 || (user && user.collection && user.collection.length > 0)}
+                    // disabled={count < 25 || (user && user.collection && user.collection.length > 0)}
+                    disabled={disable}
                 >
                     Отправить
                 </Button>
