@@ -60,6 +60,7 @@ const podcasts: Podcast[] = [
         ship: "/rocket3.png",
         title: "«25 слов» ",
         type: "audio",
+        link: 'https://25.bftcom.com/3h.wav',
         width: 202,
     },
     {

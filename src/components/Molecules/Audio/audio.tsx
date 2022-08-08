@@ -34,6 +34,12 @@ export const audios: {
         name: "Солнечные батареи",
         url: "https://25.bftcom.com/2h.wav"
     },
+    "https://25.bftcom.com/3h.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "25 слов",
+        url: "https://25.bftcom.com/3h.wav"
+    },
 }
 
 let interval: NodeJS.Timer | undefined
