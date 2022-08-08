@@ -22,7 +22,7 @@ const FifthSection = () => {
     
 
     return (
-        <div ref={ref}  id="collect" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0 overflow-y-hidden">
+        <div ref={ref}  id="collect" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0 mb-[16rem]">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Сбор <span className="text-accent">вещей</span>
@@ -49,10 +49,10 @@ const FifthSection = () => {
             <img 
             src="/astro.png"
             className="absolute right-0 top-0 -z-10"
-            alt="astro"
+            alt="astro2"
             style={{
-                width: transformPx(672.5, width),
-                height: transformPx( 1370, width),
+                width: transformPx(642.5, width),
+                height: transformPx( 1270, width),
                 transform: `translateY(-35%)`
             }}
             />
