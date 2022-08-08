@@ -14,7 +14,7 @@ const WordsForm = () => {
     const [count, setCount] = useState(0)
     const toast = useCustomToast()
     const [loading, setLoading] = useState(false)
-    
+
     // const [user, setUser] = useState<any>()
 
 
@@ -36,6 +36,8 @@ const WordsForm = () => {
 
     }
 
+
+    
     const send = () => {
         // if (text && count === 25) {
         if (text ) {
