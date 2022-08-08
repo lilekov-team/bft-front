@@ -1,5 +1,5 @@
-import { ChangeEventHandler, useState } from "react"
-import { sendWords } from "../../../data/api/api"
+import { ChangeEventHandler, useEffect, useState } from "react"
+import { getUser, sendWords } from "../../../data/api/api"
 import { useCustomToast } from "../../../hooks/toast"
 import Button, { ButtonVariants } from "../../Atoms/Button/button"
 
@@ -14,6 +14,15 @@ const WordsForm = () => {
     const [count, setCount] = useState(0)
     const toast = useCustomToast()
     const [loading, setLoading] = useState(false)
+    const [user, setUser] = useState<any>()
+
+
+    useEffect(() => {
+        setUser(getUser())
+    }, [])
+
+
+   
 
     const handleChange: ChangeEventHandler<HTMLTextAreaElement> = (e) => {
 
@@ -27,7 +36,7 @@ const WordsForm = () => {
     }
 
     const send = () => {
-        if (text) {
+        if (text && count === 25) {
             setLoading(true)
             sendWords(text)
             .then(() => {
@@ -44,6 +53,8 @@ const WordsForm = () => {
         }
     }
 
+
+
     return (
         <div className="flex flex-col w-[52.5rem]">
 
@@ -58,7 +69,7 @@ const WordsForm = () => {
                     onClick={send}
                     variant={ButtonVariants.FILLED}
                     loading={loading}
-                    disabled={disable}
+                    disabled={count < 25 || (user && user.collection && user.collection.length > 0)}
                 >
                     Отправить
                 </Button>

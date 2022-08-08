@@ -312,6 +312,7 @@ export const sendWord = async (text: string) => {
 
 export interface User {
     email: string,
+    collection: string[]
 }
 
 
@@ -357,9 +358,7 @@ export const auth = async (jwt: string) => {
             }
         })
 
-        const user = {
-            email: response.data.email
-        }
+        const user = response.data
 
         localStorage.setItem("belster-registered", "1")
         localStorage.setItem("belster-user", JSON.stringify(user))
