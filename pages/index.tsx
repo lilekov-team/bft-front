@@ -32,27 +32,27 @@ import { FaTimes } from 'react-icons/fa'
 import { hiddenRoutes } from '../src/data/hidden-content'
 
 
-const hiddenSections = [
+const hiddenSections: Routes[] = [
   // Routes.Fuel,
   // Routes.Connection,
   // Routes.Collect,
-  Routes.CollectResults,
-  Routes.Launch,
-  Routes.LaunchResults,
-  Routes.Prepare,
-  Routes.PrepareResults,
-  Routes.Route,
-  Routes.Stars,
-  Routes.Camera,
-  Routes.CameraResults,
-  Routes.Works,
-  Routes.WorksResults,
-  Routes.Exit,
-  Routes.Listen,
-  Routes.Exit,
-  Routes.Key,
-  Routes.Auction,
-  Routes.Final
+  // Routes.CollectResults,
+  // Routes.Launch,
+  // Routes.LaunchResults,
+  // Routes.Prepare,
+  // Routes.PrepareResults,
+  // Routes.Route,
+  // Routes.Stars,
+  // Routes.Camera,
+  // Routes.CameraResults,
+  // Routes.Works,
+  // Routes.WorksResults,
+  // Routes.Exit,
+  // Routes.Listen,
+  // Routes.Exit,
+  // Routes.Key,
+  // Routes.Auction,
+  // Routes.Final
 ]
 
 const Home: NextPage = () => {
