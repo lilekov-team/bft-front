@@ -107,14 +107,16 @@ const SixthSection = () => {
                 </div>
                 <div className="ml-[5.5rem] flex-1 flex flex-col z-10">
                     {
-                        winners.slice(page * 5, (page + 1) * 5).map((winner, index) => {
+                        winners.slice(page * 5, (page + 1) * 5).map((winner, i) => {
+
+                            const index = i + page * 5
                             return (
                                 <Fragment key={index}>
                                     <div className="h-[2px] w-full bg-accent shadow-pink">
 
                                     </div>
                                     <div className="min-h-[6.25rem] flex flex-col justify-center w-full">
-                                        <span className="text-white text-2xl font-bold">{`${index + 1 + page * 5}. ${winner.name}`}</span>
+                                        <span className="text-white text-2xl font-bold">{`${index + 1 }. ${winner.name}`}</span>
                                         <div className="w-full flex justify-between items-center">
                                             <span className="text-white text-lg font-normal mt-[0.625rem] ml-[2.25rem]">
                                                 {winner.job}
@@ -138,7 +140,7 @@ const SixthSection = () => {
                                         </div>
                                     </div>
                                     {
-                                        index === 2 || index === 4 &&
+                                        i === 2 || i === 4 &&
                                         <div className="h-[2px] w-full bg-accent shadow-pink">
 
                                         </div>
