@@ -9,7 +9,7 @@ const prefixes = [
 
 
 const WordsForm = () => {
-    const [disable, setDisable] = useState(false)
+    const [disable, setDisable] = useState(true)
     const [text, setText] = useState("")
     const [count, setCount] = useState(0)
     const toast = useCustomToast()
@@ -66,7 +66,7 @@ const WordsForm = () => {
 
             </textarea>
             <div className="mt-[2rem] flex justify-between">
-                <span className="text-2xl text-accent font-bold">
+                <span className="text-2xl text-disabled font-bold">
                     Введено {count} слов / Осталось {25 - count}
                 </span>
                 <Button
