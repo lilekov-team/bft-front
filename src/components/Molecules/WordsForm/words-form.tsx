@@ -62,7 +62,7 @@ const WordsForm = () => {
     return (
         <div className="flex flex-col w-[52.5rem]">
 
-            <textarea value={text} onChange={disable ? undefined : handleChange} className={`h-[5rem] bg-transparent w-full ${disable ? 'border-disabled' : 'border-accent'}  border-2 resize-none py-4 px-[4rem] text-white text-lg placeholder:text-[#ffffff88]`} placeholder="Введите 25 слов (предлоги не в счёт)">
+            <textarea disabled value={text} onChange={disable ? undefined : handleChange} className={` h-[5rem] bg-transparent w-full ${disable ? 'border-disabled' : 'border-accent'}  border-2 resize-none py-4 px-[4rem] text-white text-lg placeholder:text-[#ffffff88]`} placeholder="Введите 25 слов (предлоги не в счёт)">
 
             </textarea>
             <div className="mt-[2rem] flex justify-between">
