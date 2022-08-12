@@ -22,7 +22,7 @@ const FifthSection = () => {
     
 
     return (
-        <div ref={ref}  id="collect" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0 mb-[16rem]">
+        <div ref={ref}  id="collect" className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0 ">
             <div className="flex items-center mb-[1.875rem] ">
                 <h3 className="font-bold text-[3.375rem] text- mr-[1.25rem]">
                     Сбор <span className="text-accent">вещей</span>
