@@ -1,7 +1,9 @@
 import Image from "next/image"
-import { ChangeEventHandler, useState } from "react"
+import { ChangeEventHandler, useState, useEffect } from "react"
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
+import { useInView } from "react-intersection-observer"
+import { viewSection } from "../../../data/api/api"
 import { FaPause } from 'react-icons/fa'
 import FileUpload from "../../Atoms/FileUpload/file-upload"
 import { uploadFile } from "../../../data/api/api"
@@ -62,6 +64,16 @@ const SeventhSection = ({
     const [loading, setLoading] = useState(false)
     const [text, setText] = useState("")
     const toast = useCustomToast()
+    const {ref, inView} = useInView({
+        triggerOnce: true
+    })
+
+
+    useEffect(() => {
+        if (inView) {
+            viewSection("Запуск двигателя")
+        }
+    }, [inView])
 
     const send = () => {
         if (!file) return
@@ -120,16 +132,16 @@ const SeventhSection = ({
                 Профессиональный битбоксер и диджей соберет все фразы<br />из городов от Владивостока до Калининграда и сделает из них<br />единый космический трек «Рокот космодрома БФТ-25».
             </p>
 
-            <textarea value={text} onChange={handleChange} className={`mb-[1.875rem] h-[5rem] bg-transparent w-[22.5rem] border-accent  border-2 resize-none py-4 px-[4rem] text-white text-lg placeholder:text-[#ffffff88]`} placeholder="Введите текст">
+            {/* <textarea value={text} onChange={handleChange} className={`mb-[1.875rem] h-[5rem] bg-transparent w-[22.5rem] border-accent  border-2 resize-none py-4 px-[4rem] text-white text-lg placeholder:text-[#ffffff88]`} placeholder="Введите текст">
 
-            </textarea>
+            </textarea> */}
             <FileUpload
                 onUpload={upload}
                 onSend={send}
                 title="Отправить"
                 loading={loading}
                 file={file}
-                accept="audio"
+                accept="*"
                 id="audio"
             />
             <div className="absolute right-[7.5rem] top-[16.75rem] flex flex-col w-[30.438rem]">

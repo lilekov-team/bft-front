@@ -37,7 +37,7 @@ const hiddenSections: Routes[] = [
   // Routes.Connection,
   // Routes.Collect,
   // Routes.CollectResults,
-  Routes.Launch,
+  // Routes.Launch,
   Routes.LaunchResults,
   Routes.Prepare,
   Routes.PrepareResults,

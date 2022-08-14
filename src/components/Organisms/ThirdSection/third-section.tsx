@@ -72,6 +72,7 @@ const podcasts: Podcast[] = [
         ship: "/rocket4.png",
         title: "«Звуки вселенной»",
         type: "audio",
+        link: 'https://25.bftcom.com/4h.wav',
         width: 120,
     },
     {

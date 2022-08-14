@@ -40,6 +40,12 @@ export const audios: {
         name: "25 слов",
         url: "https://25.bftcom.com/3h.wav"
     },
+    "https://25.bftcom.com/4h.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Звуки вселенной",
+        url: "https://25.bftcom.com/4h.wav"
+    },
 }
 
 let interval: NodeJS.Timer | undefined
