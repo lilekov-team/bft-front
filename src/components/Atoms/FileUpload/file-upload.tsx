@@ -38,6 +38,7 @@ const FileUpload: React.FC<FileUploadParams> = ({
                 return;
             }
             onUpload(file)
+            uploadRef.current!.value = ""
         }
     };
 
