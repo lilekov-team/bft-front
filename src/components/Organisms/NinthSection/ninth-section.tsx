@@ -84,7 +84,7 @@ const NinthSection = () => {
                 </p>
                 <div className="flex items-center mb-[2rem] text-lg text-white">
                     вопросы и выбрать нужный ракурс.
-                    <a target={"_blank"} rel="noopener noreferrer" className="inline-block cursor-pointer ml-[2.5rem]">
+                    <a target={"_blank"} rel="noopener noreferrer" className="inline-block cursor-pointer ml-[2.5rem]" href={"https://25.bftcom.com/video_instruction_bft.pdf"}>
                         <img src="/i-blue.png" alt="info"
                             style={{
                                 width: '2rem',
@@ -100,7 +100,7 @@ const NinthSection = () => {
                 </p>
             </div>
             <FileUpload
-                accept="video"
+                accept="*"
                 file={file}
                 onSend={send}
                 onUpload={upload}
@@ -113,6 +113,13 @@ const NinthSection = () => {
                 className="absolute right-16 top-0 -z-10 w-[51.688rem] h-[49.813rem]"
                 src="/view.png"
             />
+            <p className="text-lg text-white">
+                <br />На портале действует небольшое ограничение: можно за один раз загрузить файл объёмом не более 1,5 ГБ.
+                <br />Поэтому если хочется поделиться несколькими видео, то сначала прикрепляем один файл на сайте и нажимаем кнопку
+                ОТПРАВИТЬ. Затем то же самое проделываем со следующим
+                файлом
+
+            </p>
         </div>
     )
 }
