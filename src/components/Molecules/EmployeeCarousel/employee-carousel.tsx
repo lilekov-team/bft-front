@@ -80,7 +80,7 @@ const EmployeeCarousel = ({
         onMouseLeave={() => {
             ref.current?.slickPlay()
         }}
-        ref={observerRef} className="mt-[3.75rem] h-[27.625rem] overflow-hidden px-[14.5rem] relative pt-[0.5rem]">
+        ref={observerRef} className="mt-[3.75rem] h-[31.625rem] overflow-hidden px-[14.5rem] relative pt-[0.5rem]">
             <Slider  ref={ref} autoplay={autoplay} {...settings}>
                 {
                     employees.filter((e) => {
