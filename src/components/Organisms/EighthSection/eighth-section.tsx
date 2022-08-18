@@ -45,6 +45,7 @@ const EighthSection: React.FC<SectionProps> = ({
             })
 
     }, [])
+    console.log("THIS", track);
 
     return (
         <div ref={ref} className="w-full flex flex-col mt-[12.5rem] px-[14.5rem] relative z-0">
