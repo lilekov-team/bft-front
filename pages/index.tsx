@@ -41,18 +41,18 @@ const hiddenSections: Routes[] = [
   // Routes.LaunchResults,
   // Routes.Prepare,
   // Routes.PrepareResults,
-  // Routes.Route,
-  // Routes.Stars,
-  // Routes.Camera,
-  // Routes.CameraResults,
-  // Routes.Works,
-  // Routes.WorksResults,
-  // Routes.Exit,
-  // Routes.Listen,
-  // Routes.Exit,
-  // Routes.Key,
-  // Routes.Auction,
-  // Routes.Final
+  Routes.Route,
+  Routes.Stars,
+  Routes.Camera,
+  Routes.CameraResults,
+  Routes.Works,
+  Routes.WorksResults,
+  Routes.Exit,
+  Routes.Listen,
+  Routes.Exit,
+  Routes.Key,
+  Routes.Auction,
+  Routes.Final
 ]
 
 const Home: NextPage = () => {
