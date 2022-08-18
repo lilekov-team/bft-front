@@ -1,6 +1,5 @@
 import { Spinner } from "@chakra-ui/react";
 import { useState } from "react";
-import Typography, { TextVariants } from "../Typography/typography";
 
 
 

@@ -12,11 +12,13 @@ import { useInView } from 'react-intersection-observer'
 
 const EmployeeCarousel = ({
     select,
-    selected
+    selected,
+    filter
 }: {
 
     selected: Employee | undefined,
-    select: (empl: Employee | undefined) => void
+    select: (empl: Employee | undefined) => void,
+    filter: string | undefined
 }) => {
     const { width } = useWindowDimensions()
     const [employees, setEmployees] = useState<Employee[]>([])
@@ -35,9 +37,6 @@ const EmployeeCarousel = ({
         draggable: false,
         arrows: false,
         pauseOnHover: true,
-        
-
-
     })
 
     const [autoplay, setAutoplay] = useState(false)
@@ -84,7 +83,16 @@ const EmployeeCarousel = ({
         ref={observerRef} className="mt-[3.75rem] h-[27.625rem] overflow-hidden px-[14.5rem] relative pt-[0.5rem]">
             <Slider  ref={ref} autoplay={autoplay} {...settings}>
                 {
-                    employees.map((employee, index) => {
+                    employees.filter((e) => {
+                        if (!filter) return e
+                        let parts = filter.split("/")
+                        for (let i = 0; i< parts.length; i++) {
+
+                            if (e.title.toLowerCase().includes(parts[i].toLowerCase().trim())) {
+                                return e
+                            }
+                        }
+                    }).map((employee, index) => {
                         return <Slide
                         key={index}
                         employee={employee}
@@ -133,7 +141,7 @@ const Slide = ({
                         height: transformPx(240, width)
 
                     }}
-                    src={employee.image}
+                    src={employee.photo}
                     onMouseEnter={() => {
                         setHover(true)
                         select(employee)
@@ -154,13 +162,13 @@ const Slide = ({
                 </div>
                 <div className="mt-[1.625rem] flex flex-col pr-[4rem]">
                     <span className="text-pale-blue text-2xl font-bold ">
-                        {employee.name}
+                        {employee.first_name}
                     </span>
                     <span className="text-pale-blue text-2xl font-bold mb-[1rem]">
-                        {employee.surname}
+                        {employee.last_name}
                     </span>
                     <span className="text-white-blue text-lg  ">
-                        {employee.job}
+                        {employee.honorary_title}
                     </span>
                 </div>
             </div>

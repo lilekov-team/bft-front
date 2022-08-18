@@ -20,6 +20,7 @@ module.exports = {
       'grey':'var(--grey)',
       'blue':'var(--blue)',
       'disabled':'var(--disabled)',
+      'random-grey':'var(--random-grey)',
       'transparent': 'transparent'
     },
     extend: {
@@ -32,6 +33,7 @@ module.exports = {
         "pink-full": "2px 2px 10px #FF235B, -2px -2px 10px #FF235B",
         "blue": "0px 0px 10px #00E0FF",
         "blue-large": "0px 0px 15px #5DF6FF",
+        "pink-sm": "0px 4px 20px #FF235B"
       },
       backgroundImage: {
         "main": "url(/bft-bg.jpg)" 
