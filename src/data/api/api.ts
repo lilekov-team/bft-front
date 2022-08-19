@@ -683,7 +683,8 @@ export const uploadFileToMinio = async (file: File, bucket: buckets): Promise<st
 
     formData.append(`file`, file);
 
-    const url = API_URL + '/contest/upload' + `?bucket=${bucket}`
+    const url = API_URL + '/contest' +
+        '/upload' + `?bucket=${bucket}`
 
     const jwt = getJwt()
 
@@ -701,7 +702,7 @@ export const uploadFileToMinio = async (file: File, bucket: buckets): Promise<st
 
 
 
-        return response.data[0].url
+        return response.data.url
 
 
 
