@@ -149,8 +149,8 @@ export const fetchTrack = async (): Promise<AudioTrack> => {
 
     return new Promise((res, rej) => {
         setTimeout(() => {
-            res(audios["https://25.bftcom.com/rocot.mp3"])
-        }, 500)
+            res(audios["/BFT3.mp3"])
+        }, 100)
     })
 
 }

@@ -46,6 +46,12 @@ export const audios: {
         name: "Звуки вселенной",
         url: "https://25.bftcom.com/4h.wav"
     },
+    "/BFT3.mp3": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Рокот космодрома",
+        url: "/BFT3.mp3"
+    },
 }
 
 let interval: NodeJS.Timer | undefined
