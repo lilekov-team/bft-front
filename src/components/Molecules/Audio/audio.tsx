@@ -46,6 +46,12 @@ export const audios: {
         name: "Звуки вселенной",
         url: "https://25.bftcom.com/4h.wav"
     },
+    "https://25.bftcom.com/5h.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Источник энергии",
+        url: "https://25.bftcom.com/5h.wav"
+    },
     "/BFT3.mp3": {
         artist: "BFT",
         cover: "/logo-square.png",

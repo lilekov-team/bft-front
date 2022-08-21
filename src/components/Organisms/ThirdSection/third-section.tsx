@@ -84,6 +84,7 @@ const podcasts: Podcast[] = [
         ship: "/rocket5.png",
         title: "«Источник энергии»",
         type: "audio",
+        link: "https://25.bftcom.com/5h.wav",
         width: 132,
     },
     {
