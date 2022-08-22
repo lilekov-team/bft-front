@@ -212,7 +212,7 @@ const SecondSection = ({
                             <img className="bg-blend-screen absolute left-[-1.5rem] top-[2rem]   min-w-[13.125rem] h-[9.563rem]" src={"/slidebg.png"} alt="slidebg" />
                         </div>
                         <div className="text-accent font-bold text-[1.5rem] leading-[1.825rem]">
-                            22 августа<br /> - 26 августа
+                            19 августа<br /> - 26 августа
                         </div>
                     </div>
                     <div className={`flex flex-col cursor-pointer h-[18.5rem] justify-between mr-[4.375rem]`} onClick={() => handleChangeSlide(6)}>
