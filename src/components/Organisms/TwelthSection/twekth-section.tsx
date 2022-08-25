@@ -133,19 +133,19 @@ const TwelthSection = () => {
                 </AnimatePresence>
             </div>
             <div className="pl-[14.5rem] pr-[12.25rem] flex flex-row flex-wrap mt-[3.75rem] gap-3">
-                <div onClick={() => toggleFilter("Благодарности")} className={`cursor-pointer w-[11.875rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "БЛАГОДАРНОСТИ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Благодарности")} className={`cursor-pointer w-[11.875rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Благодарности" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Благодарности
                 </div>
-                <div onClick={() => toggleFilter("Знаки отличия")} className={`cursor-pointer w-[11.375rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "ЗНАКИ ОТЛИЧИЯ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Знаки отличия")} className={`cursor-pointer w-[11.375rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Знаки отличия" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Знаки отличия
                 </div>
-                <div onClick={() => toggleFilter("Заслуженный мастер БФТ")} className={`cursor-pointer w-[21.688rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "ЗАСЛУЖЕННЫЙ МАСТЕР БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Заслуженный мастер БФТ")} className={`cursor-pointer w-[21.688rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Заслуженный мастер БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Заслуженный мастер БФТ
                 </div>
-                <div onClick={() => toggleFilter("Мастер БФТ")} className={`cursor-pointer w-[21.688rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "МАСТЕР БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Мастер БФТ")} className={`cursor-pointer w-[21.688rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Мастер БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Мастер БФТ
                 </div>
-                <div onClick={() => toggleFilter("Профессионал БФТ")} className={`cursor-pointer w-[20.813rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "ПРОФЕССИОНАЛ БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Профессионал БФТ")} className={`cursor-pointer w-[20.813rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Профессионал БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Профессионал БФТ
                 </div>
                 <div onClick={() => toggleFilter("Заслуженный преподаватель БФТ")} className={`cursor-pointer w-[30.963rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Заслуженный преподаватель БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
@@ -154,10 +154,10 @@ const TwelthSection = () => {
                 <div onClick={() => toggleFilter("Преподаватель БФТ")} className={`cursor-pointer w-[20.963rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Преподаватель БФТ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Преподаватель БФТ
                 </div>
-                <div onClick={() => toggleFilter("Автор публикаций")} className={`cursor-pointer w-[14.438rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "АВТОР ПУБЛИКАЦИЙ" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Автор публикаций")} className={`cursor-pointer w-[14.438rem] h-[3.75rem] flex justify-center items-center borderа-2 text-lg  ${filter === "Автор публикаций" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Автор публикаций
                 </div>
-                <div onClick={() => toggleFilter("Спасибо, капитан")} className={`cursor-pointer w-[12.813rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "СПАСИБО, КАПИТАН" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
+                <div onClick={() => toggleFilter("Спасибо, капитан")} className={`cursor-pointer w-[12.813rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Спасибо, капитан" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
                     Спасибо, капитан
                 </div>
 
