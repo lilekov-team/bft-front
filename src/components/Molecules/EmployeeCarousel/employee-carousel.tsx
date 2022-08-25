@@ -142,13 +142,12 @@ const Slide = ({
 
                     }}
                     src={employee.photo}
-                    onMouseEnter={() => {
-                        setHover(true)
-                        select(employee)
-                    }}
-                    onMouseLeave={() => {
-                        setHover(false)
-                        select(undefined)
+                    onClick={() => {
+                        if (selected?.last_name === employee.last_name && selected.first_name === employee.first_name) {
+                            select(undefined)
+                        } else {
+                            select(employee)
+                        }
                     }}
                     className={`grayscale hover:grayscale-0 duration-300 hover:shadow-pink-full cursor-pointer`}
                 />

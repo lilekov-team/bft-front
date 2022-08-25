@@ -7,6 +7,7 @@ import { Employee, viewSection } from "../../../data/api/api"
 
 import { useWindowDimensions } from "../../../hooks/dimension"
 import { transformPx } from "../../../utils/utils"
+import { ScrollableContainer } from "../../Atoms/ScrollableContainer/scrollable-container"
 import EmployeeCarousel from "../../Molecules/EmployeeCarousel/employee-carousel"
 
 
@@ -44,6 +45,8 @@ const TwelthSection = () => {
     const selectEmployee = (employee?: Employee) => {
         setSelected(employee)
     }
+
+    console.log(selected)
 
     return (
         <div ref={ref} className="w-full flex flex-col   relative z-0">
@@ -99,23 +102,32 @@ const TwelthSection = () => {
                                 src="/close.png"
                                 alt="close"
                             />
-                            <div className="text-white text-sm leading-tight flex flex-col">
-                                <p className="mb-2">
-                                    ДОЛЖНОСТЬ: {selected.position}
-                                </p>
-                                <p className="mb-2">
-                                    ГОРОД: {selected.town}
-                                </p>
-                                <p className="mb-2">
-                                    ДОСТИЖЕНИЕ: {selected.achievement}
-                                </p>
-                                <p className="mb-2">
-                                    ПОЧЕТНОЕ ЗВАНИЕ: {selected.honorary_title}
-                                </p>
-                                <p className="mb-2">
-                                    НАГРАДА: {selected.awards}
-                                </p>
-                            </div>
+                            <ScrollableContainer
+                                maxHeight={transformPx(170, width)}
+                                thumbColor={'var(--accent)'}
+
+                            >
+                                <div className="text-white text-sm leading-tight flex flex-col pr-2">
+                                    <p className="mb-2">
+                                        ДОЛЖНОСТЬ: {selected.position}
+                                    </p>
+                                    <p className="mb-2">
+                                        ГОРОД: {selected.town}
+                                    </p>
+                                    <p className="mb-2">
+                                        ДОСТИЖЕНИЕ: {selected.achievement}
+                                    </p>
+                                    <p className="mb-2">
+                                        ПОЧЕТНОЕ ЗВАНИЕ: {selected.honorary_title}
+                                    </p>
+                                    {
+                                        selected.awards != null && selected.awards !== "" && selected.awards !== "null" &&
+                                        <p className="mb-2">
+                                            НАГРАДА: {selected.awards}
+                                        </p>
+                                    }
+                                </div>
+                            </ScrollableContainer>
                         </motion.div>
                     }
                 </AnimatePresence>
@@ -128,21 +140,21 @@ const TwelthSection = () => {
                     Заслуженный мастер /Мастер
                 </div>
                 <div onClick={() => toggleFilter("Заслуженный преподаватель/ преподаватель")} className={`cursor-pointer w-[30.963rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Заслуженный преподаватель/ преподаватель" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
-                Заслуженный преподаватель/ преподаватель
+                    Заслуженный преподаватель/ преподаватель
                 </div>
                 <div onClick={() => toggleFilter("Автор публикаций")} className={`cursor-pointer w-[14.438rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Автор публикаций" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
-                Автор публикаций
+                    Автор публикаций
                 </div>
                 <div onClick={() => toggleFilter("Профессионал")} className={`cursor-pointer w-[11.813rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Профессионал" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
-                Профессионал
+                    Профессионал
                 </div>
                 <div onClick={() => toggleFilter("Спасибо капитан")} className={`cursor-pointer w-[12.813rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Спасибо капитан" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
-                Спасибо капитан
+                    Спасибо капитан
                 </div>
                 <div onClick={() => toggleFilter("Знаки отличия")} className={`cursor-pointer w-[11.375rem] h-[3.75rem] flex justify-center items-center border-2 text-lg  ${filter === "Знаки отличия" ? "bg-accent shadow-pink-sm border-transparent text-white " : "border-random-grey text-random-grey bg-transparent"}`}>
-                Знаки отличия
+                    Знаки отличия
                 </div>
-                
+
             </div>
             <EmployeeCarousel
                 select={selectEmployee}
