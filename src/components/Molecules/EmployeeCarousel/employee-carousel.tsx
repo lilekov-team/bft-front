@@ -133,7 +133,7 @@ const Slide = ({
 
     return (
         <div >
-            <div className="flex flex-col relative w-[16.125rem]">
+            <div className="flex flex-col relative w-[17.125rem]">
                 <img
 
                     style={{
