@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useMemo, useRef, useState } from "react"
 import { Employee, getEmployees } from "../../../data/api/api"
 import Slider, { Settings } from "react-slick";
 import Image from "next/image";
@@ -29,17 +29,35 @@ const EmployeeCarousel = ({
     })
     const [settings, setSettings] = useState<Settings>({
         dots: false,
-        infinite: true,
+        infinite: false,
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 5,
-        variableWidth: true,
+        // variableWidth: true,
         draggable: false,
         arrows: false,
         pauseOnHover: true,
     })
 
     const [autoplay, setAutoplay] = useState(false)
+
+    const filteredEmployees = useMemo(() => {
+        return employees.filter((e) => {
+            if (!filter) return e
+            let parts = filter.split("/")
+            for (let i = 0; i < parts.length; i++) {
+
+                if (e.title.toLowerCase().includes(parts[i].toLowerCase().trim())) {
+                    return e
+                }
+            }
+        })
+    }, [employees, filter])
+
+
+    // useEffect(() => {
+    //     ref.current?.
+    // }, [filteredEmployees])
 
     useEffect(() => {
         getEmployees()
@@ -56,7 +74,7 @@ const EmployeeCarousel = ({
         if (inView) {
             setTimeout(() => {
                 ref.current?.slickPlay()
-                
+
             }, 1000)
 
         }
@@ -77,31 +95,38 @@ const EmployeeCarousel = ({
         <div onMouseEnter={() => {
             ref.current?.slickPause()
         }}
-        onMouseLeave={() => {
-            ref.current?.slickPlay()
-        }}
-        ref={observerRef} className="mt-[3.75rem] h-[32.625rem] overflow-hidden px-[14.5rem] relative pt-[0.5rem]">
-            <Slider  ref={ref} autoplay={autoplay} {...settings}>
-                {
-                    employees.filter((e) => {
-                        if (!filter) return e
-                        let parts = filter.split("/")
-                        for (let i = 0; i< parts.length; i++) {
-
-                            if (e.title.toLowerCase().includes(parts[i].toLowerCase().trim())) {
-                                return e
-                            }
+            onMouseLeave={() => {
+                ref.current?.slickPlay()
+            }}
+            ref={observerRef} className="mt-[3.75rem] h-[32.625rem] overflow-hidden px-[14.5rem] relative pt-[0.5rem]">
+            {
+                filteredEmployees.length < 5 ?
+                    <div className="flex items-center w-full justify-center">
+                        {
+                            filteredEmployees.map((employee, index) => {
+                                return <Slide
+                                    key={index}
+                                    employee={employee}
+                                    select={select}
+                                    selected={selected}
+                                />
+                            })
                         }
-                    }).map((employee, index) => {
-                        return <Slide
-                        key={index}
-                        employee={employee}
-                        select={select}
-                        selected={selected}
-                        />
-                    })
-                }
-            </Slider>
+                    </div>
+                    :
+                    <Slider ref={ref} autoplay={autoplay} {...settings}>
+                        {
+                            filteredEmployees.map((employee, index) => {
+                                return <Slide
+                                    key={index}
+                                    employee={employee}
+                                    select={select}
+                                    selected={selected}
+                                />
+                            })
+                        }
+                    </Slider>
+            }
             <div onClick={prev} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute left-[14.5rem] top-[18.563rem] rounded-full bg-accent flex justify-center items-center">
                 <FaChevronLeft />
             </div>
@@ -128,7 +153,7 @@ const Slide = ({
     const [hover, setHover] = useState(false)
 
 
-    
+
 
 
     return (
@@ -149,7 +174,7 @@ const Slide = ({
                             select(employee)
                         }
                     }}
-                    className={`grayscale hover:grayscale-0 duration-300 hover:shadow-pink-full cursor-pointer`}
+                    className={` duration-300 hover:shadow-pink-full cursor-pointer`}
                 />
                 <div className="h-[1.25rem] mt-[2.5rem] flex items-center w-full relative">
                     <div className="w-full h-[0.625rem] shadow-blue bg-white">
