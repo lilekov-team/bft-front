@@ -127,7 +127,7 @@ const TwelthSection = () => {
                             opacity: 0,
                         }}
 
-                        className="w-full absolute pl-[14.5rem] pr-[12.25rem] bottom-[-18rem] z-[1000] mt-[1.5rem] ">
+                        className="w-full absolute pl-[14.5rem] pr-[12.25rem] top-[20rem] z-[1000] mt-[1.5rem] ">
                         <div
                             className=" py-[2.25rem] px-[2.75rem] shadow-pink-full border-accent border-2 h-[16.813rem] relative"
                             style={{
