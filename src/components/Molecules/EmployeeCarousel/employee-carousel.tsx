@@ -45,10 +45,15 @@ const EmployeeCarousel = ({
         return employees.filter((e) => {
             if (!filter) return e
             let parts = filter.split("/")
-            for (let i = 0; i < parts.length; i++) {
-
-                if (e.title.toLowerCase().includes(parts[i].toLowerCase().trim())) {
+            if (e.title.toLowerCase().includes('заслуженный')) {
+                if (e.title.toLowerCase().includes(filter.toLowerCase())) {
                     return e
+                }
+            } else {
+                for (let i = 0; i < parts.length; i++) {
+                    if (e.title.toLowerCase().includes(parts[i].toLowerCase().trim())) {
+                        return e
+                    }
                 }
             }
         })

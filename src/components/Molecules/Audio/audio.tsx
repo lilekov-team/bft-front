@@ -46,6 +46,12 @@ export const audios: {
         name: "Звуки вселенной",
         url: "https://25.bftcom.com/4h.wav"
     },
+    "https://25.bftcom.com/6h.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Ценности окрыляют",
+        url: "https://25.bftcom.com/6h.wav"
+    },
 }
 
 let interval: NodeJS.Timer | undefined
