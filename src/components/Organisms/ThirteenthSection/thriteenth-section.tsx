@@ -73,7 +73,7 @@ const ThirteenthSection = () => {
             <Video
                 color="pink"
                 poster="/placeholder2.png"
-                src="https://static.videezy.com/system/resources/previews/000/013/658/original/Wind_Turbine_03.mp4"
+                src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/фильм%20про%20ценности.mov"
             />
             <div className="mt-[5.625rem] mb-[2rem]">
                 <p className="mb-[1rem] text-white text-lg">
@@ -85,13 +85,19 @@ const ThirteenthSection = () => {
 
                 </p>
                 <p className=" text-white text-lg">
-                    <strong>Механика</strong>:  впишите вариант продолжения кино в форму ниже, либо загрузите свою версию<br /> сценария отдельным файлом. Лучшая работа будет озвучена голосами профессиональных<br /> актёров. И, конечно, по всем правилам киноиндустрии, лучший сценарист получит<br /> вознаграждение - БФТ-деньги.
+                    <strong>Механика</strong>: Скачайте форму и впишите в неё свой вариант продолжения кино
+                    <a target={"_blank"} rel="noopener noreferrer" className="inline-block cursor-pointer ml-[2.5rem]" href={"https://25.bftcom.com/forma_sc.docx"}>
+                    <img src="/i-blue.png" alt="info"
+                         style={{
+                             width: '2rem',
+                             height: '2rem',
+                         }}
+                    />
+                </a>
+                    <br /> . Впишите свой вариант продолжения кино в форму. Готовый документ загрузите. <br /> Для творческого процесса вы можете объединяться в команды. <br /> Лучшая работа будет озвучена голосами профессиональных актёров.<br /> И, конечно, по всем правилам киноиндустрии, лучший сценарист получит вознаграждение - БФТ-деньги.
                 </p>
             </div>
             <div className="flex items-center">
-                <input value={text} onChange={disable ? undefined : handleChange} className={`mr-[2.5rem] h-[3.125remrem] w-[28.125rem] bg-transparent ${disable ? 'border-disabled' : 'border-accent'}  border-2 resize-none py-[0.5rem] px-[1.5rem] text-white text-lg placeholder:text-[#ffffff88]`} placeholder="Введите текст">
-
-                </input>
                 <FileUpload
                 accept="*"
                 file={file}
