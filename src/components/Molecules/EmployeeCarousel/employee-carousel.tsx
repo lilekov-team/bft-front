@@ -45,8 +45,9 @@ const EmployeeCarousel = ({
         return employees.filter((e) => {
             if (!filter) return e
             let parts = filter.split("/")
-            if (e.title.toLowerCase().includes('заслуженный')) {
-                if (e.title.toLowerCase().includes(filter.toLowerCase())) {
+            if (e.title.toLowerCase().includes('мастер') || e.title.toLowerCase().includes('профессионал')) {
+                console.log(e.title, filter)
+                if (e.title.toLowerCase().trim() === filter.toLowerCase().trim()) {
                     return e
                 }
             } else {
