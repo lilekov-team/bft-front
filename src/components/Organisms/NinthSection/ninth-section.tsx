@@ -114,7 +114,7 @@ const NinthSection = () => {
                 title="Отправить"
                 loading={loading}
                 id={"video"}
-
+                disable
             />
             <img
                 className="absolute right-16 top-0 -z-10 w-[51.688rem] h-[49.813rem]"

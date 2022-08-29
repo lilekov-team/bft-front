@@ -41,8 +41,8 @@ const hiddenSections: Routes[] = [
   // Routes.LaunchResults,
   // Routes.Prepare,
   // Routes.PrepareResults,
-  Routes.Route,
-  Routes.Stars,
+  // Routes.Route,
+  // Routes.Stars,
   Routes.Camera,
   Routes.CameraResults,
   Routes.Works,
@@ -149,7 +149,7 @@ const Home: NextPage = () => {
         style={{
           backgroundPosition: 'center top'
         }}
-        className='w-full min-h-[200rem]  bg-main bg-main-fill bg-no-repeat pb-[16.25rem] relative'>
+        className='w-full min-h-[200rem]  bg-main bg-main-fill bg-no-repeat pb-[20.25rem] relative'>
         <Header
           handleNavigation={handleNavigation}
           hidden={hidden}

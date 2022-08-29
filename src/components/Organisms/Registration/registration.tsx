@@ -39,13 +39,13 @@ const RegistrationModal = () => {
                         })
                         .catch((err) => {
                             toast("", "error", err.message)
-                            router.push("/404")
+                            // router.push("/404")
                         })
                 } else {
-                    router.push("/404")
+                    // router.push("/404")
                 }
             } else {
-                router.push("/404")
+                // router.push("/404")
             }
 
         }

@@ -97,6 +97,7 @@ const podcasts: Podcast[] = [
         title: "«Ценности окрыляют»",
         type: "audio",
         width: 160,
+        link: 'https://25.bftcom.com/6h.wav'
     },
     {
         date: "5 сентября",
