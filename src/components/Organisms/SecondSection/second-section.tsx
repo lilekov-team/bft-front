@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import moment from 'moment'
 import { useEffect, useState } from 'react'
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
 import { useInView } from 'react-intersection-observer'
 import { viewSection } from '../../../data/api/api'
 import { hiddenRoutes } from '../../../data/hidden-content'
@@ -159,6 +160,18 @@ const SecondSection = ({
     }
 
 
+    const prev = () => {
+        if (slide >1) {
+            handleChangeSlide(slide -1)
+        }
+    }
+
+    const next = () => {
+        if (slide < 9) {
+            handleChangeSlide(slide + 1)
+        }
+    }
+
     return (
         <div id={"navigation"} ref={ref} className="w-full flex flex-col mt-[12.5rem]">
             <div className="w-full overflow-hidden">
@@ -253,7 +266,7 @@ const SecondSection = ({
                     </div>
                 </motion.div>
             </div>
-            <div className="w-full overflow-hidden">
+            <div className="w-full overflow-hidden relative">
                 <motion.div
                     initial={{
                         x: 120 / 16 * 1.11 * width / 100
@@ -261,7 +274,7 @@ const SecondSection = ({
                     animate={{
                         x: transforms2[offsetSlide]
                     }}
-                    className='mt-[2.375rem] h-[1.25rem] flex items-center relative '
+                    className='my-[2.375rem] h-[1.25rem] flex items-center relative '
                     style={{
                         width: '138.979rem'
                     }}
@@ -293,6 +306,12 @@ const SecondSection = ({
                         })
                     }
                 </motion.div>
+                <div onClick={prev} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute left-[14.5rem] top-[1.25rem] rounded-full bg-accent flex justify-center items-center">
+                    <FaChevronLeft />
+                </div>
+                <div onClick={next} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute right-[11.825rem] top-[1.25rem] rounded-full bg-accent flex justify-center items-center">
+                    <FaChevronRight />
+                </div>
             </div>
             <div className="w-full overflow-hidden h-[7rem] ">
                 <motion.div
@@ -302,7 +321,7 @@ const SecondSection = ({
                     animate={{
                         x: transforms2[offsetSlide]
                     }}
-                    className="mt-[2.5rem] h-[2.rem] relative flex items-start"
+                    className=" h-[2.rem] relative flex items-start"
                 >
                     <div
                         style={{
@@ -338,15 +357,15 @@ const SecondSection = ({
                             left: offsets[5]
                         }}
                         className={`flex items-start font-bold text-base text-white absolute `}>
-                            ПОДГОТОВКА<br />
-                            ЭКИПАЖА
+                        ПОДГОТОВКА<br />
+                        ЭКИПАЖА
                     </div>
                     <div
                         style={{
                             left: offsets[6]
                         }}
                         className={`flex items-start font-bold text-base text-white absolute `}>
-                            СТРОИМ МАРШРУТ
+                        СТРОИМ МАРШРУТ
                     </div>
                     <div
                         style={{

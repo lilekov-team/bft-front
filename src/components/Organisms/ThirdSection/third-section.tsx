@@ -9,6 +9,7 @@ import { AudioTrack } from "../SeventhSection/seventh-section"
 import { audios } from "../../Molecules/Audio/audio"
 import { useInView } from "react-intersection-observer"
 import { viewSection } from "../../../data/api/api"
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
 interface Podcast {
     type: "audio" | "video",
@@ -165,7 +166,7 @@ const ThirdSection = ({
     const [offsetSlide, setOffsetSlide] = useState(1)
     const slideWidth = 220
     const margin = 57
-    const {ref, inView} = useInView({
+    const { ref, inView } = useInView({
         triggerOnce: true
     })
 
@@ -185,9 +186,9 @@ const ThirdSection = ({
             const d = moment(dates[i], "DD.MM.yyyy")
 
             if (today.isBefore(d)) {
-         
-                setOffsetSlide(i + 1)
-                setSlide(i + 1)
+
+                setOffsetSlide(i )
+                setSlide(i )
                 break
             }
         }
@@ -196,9 +197,9 @@ const ThirdSection = ({
 
     const handlePlay = (podcast: Podcast) => {
         if (podcast.type === "audio") {
-            if (play && podcast.link === audio?.url ) {
+            if (play && podcast.link === audio?.url) {
                 togglePlay(!play)
-            }else {
+            } else {
                 playAudio(audios[podcast.link!!])
             }
 
@@ -208,8 +209,19 @@ const ThirdSection = ({
         }
     }
 
+    const prev = () => {
+        if (slide >1) {
+            setOffsetSlide(slide - 1)
+            setSlide(slide - 1)
+        }
+    }
 
-    console.log(offsetSlide)
+    const next = () => {
+        if (slide < podcasts.length) {
+            setOffsetSlide(slide + 1)
+            setSlide(slide + 1)
+        }
+    }
 
     return (
         <div ref={ref} id="fuel" className="w-full flex flex-col mt-[12.5rem]">
@@ -248,17 +260,17 @@ const ThirdSection = ({
                                     }}
                                     onClick={() => {
                                         setSlide(index + 1)
-                                        setOffsetSlide(index+1)
+                                        setOffsetSlide(index + 1)
                                     }}
                                 >
                                     <Icon
-                                    onClick={() => {
-                                        
-                                        handlePlay(podcast)
-                                    }}
-                                    podcast={podcast}
-                                    audio={audio}
-                                    play={play}
+                                        onClick={() => {
+
+                                            handlePlay(podcast)
+                                        }}
+                                        podcast={podcast}
+                                        audio={audio}
+                                        play={play}
                                     />
                                     <div className="flex flex-col mt-[4.5rem] relative">
                                         <span className="text-pale-blue font-bold text-2xl leading-tight">
@@ -295,7 +307,7 @@ const ThirdSection = ({
                         })
                     }
                 </motion.div>
-                <div className="w-full overflow-hidden absolute top-[8rem]">
+                <div className="w-full overflow-hidden absolute top-[8rem] ">
                     <motion.div
                         initial={{
                             x: transformPx(232, width)
@@ -306,13 +318,13 @@ const ThirdSection = ({
                         transition={{
                             easings: 'easeInOut'
                         }}
-                        className='mt-[1rem] h-[1.5rem] flex items-center relative '
+                        className='my-[1.5rem] h-[1.5rem] flex items-center relative '
                         style={{
-                            width: transformPx(slideWidth * (podcasts.length ) + margin * (podcasts.length -0.8), width)
+                            width: transformPx(slideWidth * (podcasts.length) + margin * (podcasts.length - 0.8), width)
                         }}
-                        >
-                        <svg id="line" width={transformPx(slideWidth * (podcasts.length  ) + margin * (podcasts.length  -0.8), width)} height={3}>
-                            <line x1="0" y1="1" x2={transformPx(slideWidth * (podcasts.length ) + margin * (podcasts.length -0.8), width)} y2="1" stroke="white" fill='white'
+                    >
+                        <svg id="line" width={transformPx(slideWidth * (podcasts.length) + margin * (podcasts.length - 0.8), width)} height={3}>
+                            <line x1="0" y1="1" x2={transformPx(slideWidth * (podcasts.length) + margin * (podcasts.length - 0.8), width)} y2="1" stroke="white" fill='white'
                                 strokeDasharray="7" strokeWidth={2} />
                         </svg>
                         <motion.div
@@ -320,7 +332,7 @@ const ThirdSection = ({
                                 width: "0rem",
                             }}
                             animate={{
-                                width: transformPx(240  +  ((slide - 1) * slideWidth + (slide - 1) * margin), width)
+                                width: transformPx(240 + ((slide - 1) * slideWidth + (slide - 1) * margin), width)
                             }}
                             transition={{
                                 easings: 'easeInOut'
@@ -341,6 +353,12 @@ const ThirdSection = ({
                             })
                         }
                     </motion.div>
+                    <div onClick={prev} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute left-[14.5rem] top-[0.65rem] rounded-full bg-pale-blue flex justify-center items-center">
+                        <FaChevronLeft />
+                    </div>
+                    <div onClick={next} className="cursor-pointer z-50 w-[3.125rem] h-[3.125rem] absolute right-[12.825rem] top-[0.65rem] rounded-full bg-pale-blue flex justify-center items-center">
+                        <FaChevronRight />
+                    </div>
                 </div>
             </div>
 
@@ -387,8 +405,8 @@ const Icon = ({
                     podcast.icon ?
                         <img src={podcast.icon} alt="slide" className=" "
                             style={{
-                                width: transformPx(podcast.width*0.9, width),
-                                height: transformPx(podcast.height*0.9, width),
+                                width: transformPx(podcast.width * 0.9, width),
+                                height: transformPx(podcast.height * 0.9, width),
                             }}
                         />
                         :
