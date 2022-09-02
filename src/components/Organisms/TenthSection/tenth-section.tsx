@@ -42,7 +42,7 @@ const TenthSection = () => {
             <Video
             color="pink"
             poster="/placeholder2.png"
-            src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/bft_children_short_final.mov"
+            src="https://7gpr1r2xrs.a.trbcdn.net/cdn/yanokive81/bft/bft_children_long_final.mp4"
             />
         </div>
     )
