@@ -54,7 +54,7 @@ const FifteenthSection = () => {
                         </a>
                     </div>
                     <p className="text-white text-lg">
-                        А теперь пора присоединяться к игре.<br />Сделать это можно, нажав кнопку или через qr-код.
+                        Это можно сделать, нажав на кнопку<br /> информации или по qr-коду. В инструкции каждый найдёт <br /> описание правил и ссылку для начала игры. Удачи!
                     </p>
                 </div>
                 <img src="https://25.bftcom.com/Insruction.gif" alt="qr" className="w-[16.563rem] h-[16.563rem]" />

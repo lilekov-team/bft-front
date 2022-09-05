@@ -51,9 +51,11 @@ const FourteenthSection = () => {
 
                                     </div>
                                     <div className="min-h-[6.25rem] flex flex-col justify-center w-full">
-                                        <span className="text-white text-2xl font-bold">{`${index + 1}. ${winner.name}`}</span>
+                                        <span className="text-white text-2xl font-bold">&#8226;{` ${winner.name}`}</span>
                                         <div className="w-full flex justify-between items-center">
-                                            <span className="text-white text-lg font-normal mt-[0.625rem] ml-[2.25rem]">
+                                            <span className="text-white text-lg font-normal mt-[0.625rem] ml-[0.1rem]">
+                                                {winner.text}
+                                            </span>  <span className="text-white text-lg font-normal mt-[0.625rem] ml-[5rem]">
                                                 {winner.job}
                                             </span>
                                         </div>
