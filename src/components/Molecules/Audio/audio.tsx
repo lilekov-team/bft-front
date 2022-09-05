@@ -65,6 +65,14 @@ export const audios: {
         url: "https://25.bftcom.com/6h.wav"
 
     },
+
+        "https://25.bftcom.com/7h.wav": {
+        artist: "BFT",
+        cover: "/logo-square.png",
+        name: "Земля в иллюминаторе",
+        url: "https://25.bftcom.com/7h.wav"
+
+    },
 }
 
 let interval: NodeJS.Timer | undefined
