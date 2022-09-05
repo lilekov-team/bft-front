@@ -44,7 +44,7 @@ const hiddenSections: Routes[] = [
   // Routes.Route,
   // Routes.Stars,
   // Routes.Camera,
-  Routes.CameraResults,
+  // Routes.CameraResults,
   // Routes.Works,
   Routes.WorksResults,
   Routes.Exit,

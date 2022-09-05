@@ -110,6 +110,7 @@ const podcasts: Podcast[] = [
         title: "«Земля в иллюминаторе»",
         type: "audio",
         width: 120,
+        link: 'https://25.bftcom.com/7h.wav'
     },
     {
         date: "12 сентября",
