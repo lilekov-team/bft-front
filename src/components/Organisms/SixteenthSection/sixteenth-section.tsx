@@ -56,7 +56,7 @@ const SixteenthSection = () => {
             <p className="text-white text-lg mb-[6.25rem]">
                 Мы рады приветствовать победителей. На их счету прибавилось БФТ-денег.<br />Это особенно приятно, поскольку наш Аукцион стремительно приближается.<br />И можно будет совершить долгожданное приобретение.
             </p>
-            <div className="self-end flex flex-col w-[25.25rem] pt-[-12rem]">
+            <div className="self-end flex flex-col w-[25.25rem] z-[5000] pt-[-12rem]">
                 {
                     // winners.map((winner, index) => {
                     //     return (
