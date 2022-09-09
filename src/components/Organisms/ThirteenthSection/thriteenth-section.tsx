@@ -105,7 +105,7 @@ const ThirteenthSection = () => {
                 onSend={send}
                 onUpload={upload}
                 title="Отправить"
-                disable={disable}
+                disable={true}
                 loading={loading}
                 />
             </div>
