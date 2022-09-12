@@ -122,6 +122,7 @@ const podcasts: Podcast[] = [
         title: "«Посыл во вселенную»",
         type: "audio",
         width: 120,
+        link: 'https://25.bftcom.com/8h.wav'
     },
     // {
     //     date: "5 сентября",
