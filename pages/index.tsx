@@ -149,7 +149,7 @@ const Home: NextPage = () => {
         style={{
           backgroundPosition: 'center top'
         }}
-        className='w-full min-h-[200rem]  bg-main bg-main-fill bg-no-repeat pb-[10.25rem] relative'>
+        className='w-full min-h-[200rem]  bg-main bg-main-fill bg-no-repeat pb-[15.25rem] relative'>
         <Header
           handleNavigation={handleNavigation}
           hidden={hidden}
