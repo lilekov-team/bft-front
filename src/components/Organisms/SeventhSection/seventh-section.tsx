@@ -143,6 +143,7 @@ const SeventhSection = ({
                 file={file}
                 accept="*"
                 id="audio"
+                disable={true}
             />
             <div className="absolute right-[7.5rem] top-[16.75rem] flex flex-col w-[30.438rem]">
                 {

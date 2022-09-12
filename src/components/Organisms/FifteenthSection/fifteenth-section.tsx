@@ -38,13 +38,13 @@ const FifteenthSection = () => {
                         возведённый в квадрат.
                     </p>
                     <p className="mb-[1rem] text-white text-lg">
-                        Желающих проверить свои интеллектуальные способности<br />приглашаем участвовать в онлайн-игре “Однажды в космосе”.
+                        Желающих проверить свои интеллектуальные способности<br />приглашаем участвовать в онлайн-игре “Неизвестная переменная”.
                     </p>
                     <div className="mb-[1rem] text-white text-lg flex items-center">
                         <p>
                             Собирайте команду и читайте инструкцию.
                         </p>
-                        <a target={"_blank"} rel="noopener noreferrer" className="cursor-pointer ml-[2.5rem]">
+                        <a target={"_blank"} rel="noopener noreferrer" className="cursor-pointer ml-[2.5rem]" href={"https://drive.google.com/file/d/18WpanMVnH0Yv4WDW6u8tJCEZ1bR-APOo/view"}>
                             <img src="/i-blue.png" alt="info"
                                 style={{
                                     width: '2rem',
@@ -54,21 +54,11 @@ const FifteenthSection = () => {
                         </a>
                     </div>
                     <p className="text-white text-lg">
-                        А теперь пора присоединяться к игре.<br />Сделать это можно, нажав кнопку или через qr-код.
+                        Это можно сделать, нажав на кнопку<br /> информации или по qr-коду. В инструкции каждый найдёт <br /> описание правил и ссылку для начала игры. Удачи!
                     </p>
                 </div>
-                <img src="/qr.png" alt="qr" className="w-[16.563rem] h-[16.563rem]" />
+                <img src="https://25.bftcom.com/Insruction.gif" alt="qr" className="w-[16.563rem] h-[16.563rem]" />
             </div>
-            <a onClick={() => {
-               
-                sendAnalyticsData({
-                    action_content: "Однажды в космосе",
-                    cutout: true,
-                })
-            }} className={`self-center duration-200 shadow-button w-[17.5rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem]  bg-accent   text-white hover:bg-accent-dark hover:text-white cursor-pointer`}>
-                <img className="absolute left-[1.875rem]" src="/ufo.png" alt="play" />
-                Играть
-            </a>
         </div>
     )
 }
