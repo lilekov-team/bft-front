@@ -51,7 +51,7 @@ const hiddenSections: Routes[] = [
   // Routes.Listen,
   // Routes.Exit,
   // Routes.Key,
-  Routes.Auction,
+  // Routes.Auction,
   Routes.Final
 ]
 
