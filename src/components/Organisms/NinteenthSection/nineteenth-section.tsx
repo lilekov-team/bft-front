@@ -28,11 +28,18 @@ const NineteenthSection = () => {
             <p className="text-white text-lg mb-[6.25rem]">
             Звездный экипаж готов. Один клик - и вы присоединитесь к онлайн 25-летию БФТ.  
             </p>
-            <Video
-                color="pink"
-                poster="/placeholder2.png"
-                src="https://static.videezy.com/system/resources/previews/000/013/658/original/Wind_Turbine_03.mp4"
-            />
+            {/*<Video*/}
+            {/*    color="pink"*/}
+            {/*    poster="/placeholder2.png"*/}
+            {/*    src="https://static.videezy.com/system/resources/previews/000/013/658/original/Wind_Turbine_03.mp4"*/}
+            {/*/>*/}
+            <div id="iframe-container" className="w-[75rem] h-[42.313rem] border-[0.1925rem] border-accent shadow-video-pink"
+                 dangerouslySetInnerHTML={{
+                     __html: `<script src="https://facecast.net/w/js/iframe.js"></script><iframe id="ewdh1k" onload="fc_load_iframe(this)" width="100%" height="100%" style="border:none" allow="autoplay; fullscreen" allowfullscreen></iframe>`
+                 }}
+            >
+
+            </div>
         </div>
     )
 }

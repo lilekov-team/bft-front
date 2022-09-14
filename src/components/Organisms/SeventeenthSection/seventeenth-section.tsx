@@ -146,7 +146,7 @@ const SeventeenthSection = () => {
                 <Button
                     onClick={send}
                     loading={loading}
-                    disabled={disable}
+                    disabled={true}
                     variant={ButtonVariants.FILLED}
                     width={"w-[21.875rem]"}
                 >

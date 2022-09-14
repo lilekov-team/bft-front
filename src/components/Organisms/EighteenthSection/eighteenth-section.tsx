@@ -71,7 +71,7 @@ const EighteenthSection = () => {
                 onClick={send}
                 variant={ButtonVariants.FILLED}
                 loading={loading}
-                disabled={disable}
+                disabled={true}
                 >
                     Отправить
                 </Button>
