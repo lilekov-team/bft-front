@@ -48,7 +48,7 @@ const TwentiethSection = () => {
                     action_content: "Аукцион",
                     cutout: true,
                 })
-            }} target={"_blank"} className={`w-[13.75rem] duration-200 shadow-button px-[2.625rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem] border-[1px] bg-accent  hover:bg-accent-dark text-white border-transparent cursor-pointer`} href={`https://events.webinar.ru/2995761/11296885`}>
+            }} target={"_blank"} rel="noopener noreferrer" className={`w-[13.75rem] duration-200 shadow-button px-[2.625rem] py-[0.875rem] flex justify-center items-center relative  font-normal text-lg leading-[1.3175rem] border-[1px] bg-accent  hover:bg-accent-dark text-white border-transparent cursor-pointer`} href={`https://events.webinar.ru/2995761/11296885`}>
 
                 Аукцион
 
