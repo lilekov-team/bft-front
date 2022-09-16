@@ -52,7 +52,7 @@ const hiddenSections: Routes[] = [
   // Routes.Exit,
   // Routes.Key,
   // Routes.Auction,
-  Routes.Final
+  // Routes.Final
 ]
 
 const Home: NextPage = () => {
